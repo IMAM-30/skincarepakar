@@ -1,0 +1,115 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Ingredient {
+  id               Int                 @id
+  inciName         String
+  normalizedName   String              @unique
+  aliasPrimary     String?
+  ingredientGroup  String?
+  cosmeticFunction String?
+  description      String?
+  source           String?
+  referenceUrl     String?
+  status           String              @default("active")
+  aliases          IngredientAlias[]
+  benefits         IngredientBenefit[]
+  risks            IngredientRisk[]
+  results          RecommendationResult[]
+}
+
+model IngredientAlias {
+  id           Int        @id
+  ingredientId Int
+  aliasName    String
+  aliasType    String?
+  source       String?
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id], onDelete: Cascade)
+}
+
+model IngredientBenefit {
+  id            Int        @id
+  ingredientId  Int
+  benefitTag    String
+  strengthScore Int
+  evidenceNote  String?
+  source        String?
+  ingredient    Ingredient @relation(fields: [ingredientId], references: [id], onDelete: Cascade)
+}
+
+model IngredientRisk {
+  id            Int        @id
+  ingredientId  Int
+  riskTag       String
+  riskScore     Int
+  riskCondition String?
+  note          String?
+  source        String?
+  ingredient    Ingredient @relation(fields: [ingredientId], references: [id], onDelete: Cascade)
+}
+
+model SkinType {
+  id                   Int     @id
+  name                 String  @unique
+  oilinessDefault      Int
+  drynessDefault       Int
+  sensitivityDefault   Int
+  barrierDamageDefault Int
+  description          String?
+}
+
+model SkinCondition {
+  id                 Int     @id
+  name               String  @unique
+  acneLevel          Int     @default(0)
+  dullnessLevel      Int     @default(0)
+  rednessLevel       Int     @default(0)
+  barrierDamageLevel Int     @default(0)
+  drynessLevel       Int     @default(0)
+  oilinessLevel      Int     @default(0)
+  description        String?
+}
+
+model FuzzyRule {
+  id             Int     @id @default(autoincrement())
+  ruleCode       String  @unique
+  antecedentJson String
+  consequentJson String
+  description    String?
+  isActive       Boolean @default(true)
+}
+
+model RecommendationSession {
+  id                 Int      @id @default(autoincrement())
+  skinType           String
+  selectedConditions String
+  sensitivityLevel   String
+  selectedGoals      String
+  avoidPreferences   String
+  oilinessScore      Float
+  drynessScore       Float
+  acneScore          Float
+  sensitivityScore   Float
+  barrierDamageScore Float
+  dullnessScore      Float
+  createdAt          DateTime @default(now())
+  results            RecommendationResult[]
+}
+
+model RecommendationResult {
+  id                 Int                   @id @default(autoincrement())
+  sessionId          Int
+  ingredientId       Int
+  recommendationType String
+  score              Float
+  reason             String
+  warning            String?
+  session            RecommendationSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  ingredient         Ingredient            @relation(fields: [ingredientId], references: [id])
+}
