@@ -1,0 +1,54 @@
+id,ingredient_id,risk_tag,risk_score,risk_condition,note,source
+1,7,dryness_irritation_risk,3,very_sensitive_skin,Curated caution untuk Urea pada kondisi very_sensitive_skin.,manual_seed
+2,23,dryness_irritation_risk,4,dry_skin,Curated caution untuk Kaolin pada kondisi dry_skin.,manual_seed
+3,24,dryness_irritation_risk,4,dry_skin,Curated caution untuk Charcoal Powder pada kondisi dry_skin.,manual_seed
+4,25,strong_exfoliant_risk,8,sensitive_or_barrier_damage,Curated caution untuk Salicylic Acid pada kondisi sensitive_or_barrier_damage.,manual_seed
+5,25,photosensitivity_caution,5,daytime_use,Curated caution untuk Salicylic Acid pada kondisi daytime_use.,manual_seed
+6,25,barrier_caution,8,barrier_damage,Curated caution untuk Salicylic Acid pada kondisi barrier_damage.,manual_seed
+7,26,dryness_irritation_risk,5,sensitive_skin,Curated caution untuk Azelaic Acid pada kondisi sensitive_skin.,manual_seed
+8,27,dryness_irritation_risk,7,dry_or_sensitive_skin,Curated caution untuk Sulfur pada kondisi dry_or_sensitive_skin.,manual_seed
+9,28,strong_exfoliant_risk,7,sensitive_or_barrier_damage,Curated caution untuk Lactic Acid pada kondisi sensitive_or_barrier_damage.,manual_seed
+10,28,photosensitivity_caution,7,daytime_use,Curated caution untuk Lactic Acid pada kondisi daytime_use.,manual_seed
+11,28,barrier_caution,7,barrier_damage,Curated caution untuk Lactic Acid pada kondisi barrier_damage.,manual_seed
+12,29,strong_exfoliant_risk,6,sensitive_or_barrier_damage,Curated caution untuk Mandelic Acid pada kondisi sensitive_or_barrier_damage.,manual_seed
+13,29,photosensitivity_caution,6,daytime_use,Curated caution untuk Mandelic Acid pada kondisi daytime_use.,manual_seed
+14,29,barrier_caution,6,barrier_damage,Curated caution untuk Mandelic Acid pada kondisi barrier_damage.,manual_seed
+15,30,strong_exfoliant_risk,9,sensitive_or_barrier_damage,Curated caution untuk Glycolic Acid pada kondisi sensitive_or_barrier_damage.,manual_seed
+16,30,photosensitivity_caution,8,daytime_use,Curated caution untuk Glycolic Acid pada kondisi daytime_use.,manual_seed
+17,30,barrier_caution,9,barrier_damage,Curated caution untuk Glycolic Acid pada kondisi barrier_damage.,manual_seed
+18,31,strong_exfoliant_risk,4,very_sensitive_skin,Curated caution untuk Gluconolactone pada kondisi very_sensitive_skin.,manual_seed
+19,31,photosensitivity_caution,4,daytime_use,Curated caution untuk Gluconolactone pada kondisi daytime_use.,manual_seed
+20,32,strong_exfoliant_risk,4,very_sensitive_skin,Curated caution untuk Lactobionic Acid pada kondisi very_sensitive_skin.,manual_seed
+21,32,photosensitivity_caution,4,daytime_use,Curated caution untuk Lactobionic Acid pada kondisi daytime_use.,manual_seed
+22,40,strong_exfoliant_risk,5,sensitive_skin,Curated caution untuk Retinyl Palmitate pada kondisi sensitive_skin.,manual_seed
+23,40,photosensitivity_caution,6,daytime_use,Curated caution untuk Retinyl Palmitate pada kondisi daytime_use.,manual_seed
+24,41,dryness_irritation_risk,3,sensitive_skin,Curated caution untuk Bakuchiol pada kondisi sensitive_skin.,manual_seed
+25,44,dryness_irritation_risk,2,dry_skin,Curated caution untuk Zinc Oxide pada kondisi dry_skin.,manual_seed
+26,45,dryness_irritation_risk,2,dry_skin,Curated caution untuk Titanium Dioxide pada kondisi dry_skin.,manual_seed
+27,46,photosensitivity_caution,2,general_use,Curated caution untuk Avobenzone pada kondisi general_use.,manual_seed
+28,47,photosensitivity_caution,2,general_use,Curated caution untuk Octocrylene pada kondisi general_use.,manual_seed
+29,47,unknown_safety,3,sensitive_skin,Curated caution untuk Octocrylene pada kondisi sensitive_skin.,manual_seed
+30,52,fragrance_risk,8,sensitive_skin,Curated caution untuk Fragrance pada kondisi sensitive_skin.,manual_seed
+31,53,fragrance_risk,7,sensitive_skin,Curated caution untuk Limonene pada kondisi sensitive_skin.,manual_seed
+32,54,fragrance_risk,7,sensitive_skin,Curated caution untuk Linalool pada kondisi sensitive_skin.,manual_seed
+33,55,fragrance_risk,7,sensitive_skin,Curated caution untuk Citral pada kondisi sensitive_skin.,manual_seed
+34,56,fragrance_risk,7,sensitive_skin,Curated caution untuk Geraniol pada kondisi sensitive_skin.,manual_seed
+35,57,alcohol_denat_risk,8,dry_or_sensitive_skin,Curated caution untuk Alcohol Denat. pada kondisi dry_or_sensitive_skin.,manual_seed
+36,57,dryness_irritation_risk,7,dry_skin,Curated caution untuk Alcohol Denat. pada kondisi dry_skin.,manual_seed
+37,58,dryness_irritation_risk,6,sensitive_skin,Curated caution untuk Menthol pada kondisi sensitive_skin.,manual_seed
+38,58,barrier_caution,5,barrier_damage,Curated caution untuk Menthol pada kondisi barrier_damage.,manual_seed
+39,59,essential_oil_risk,8,sensitive_skin,Curated caution untuk Peppermint Oil pada kondisi sensitive_skin.,manual_seed
+40,59,fragrance_risk,7,sensitive_skin,Curated caution untuk Peppermint Oil pada kondisi sensitive_skin.,manual_seed
+41,60,essential_oil_risk,8,sensitive_skin,Curated caution untuk Lavandula Angustifolia Oil pada kondisi sensitive_skin.,manual_seed
+42,60,fragrance_risk,7,sensitive_skin,Curated caution untuk Lavandula Angustifolia Oil pada kondisi sensitive_skin.,manual_seed
+43,61,essential_oil_risk,8,sensitive_skin,Curated caution untuk Eucalyptus Globulus Leaf Oil pada kondisi sensitive_skin.,manual_seed
+44,61,fragrance_risk,7,sensitive_skin,Curated caution untuk Eucalyptus Globulus Leaf Oil pada kondisi sensitive_skin.,manual_seed
+45,62,essential_oil_risk,8,sensitive_skin,Curated caution untuk Melaleuca Alternifolia Leaf Oil pada kondisi sensitive_skin.,manual_seed
+46,62,fragrance_risk,7,sensitive_skin,Curated caution untuk Melaleuca Alternifolia Leaf Oil pada kondisi sensitive_skin.,manual_seed
+47,82,unknown_safety,2,very_sensitive_skin,Curated caution untuk Phenoxyethanol pada kondisi very_sensitive_skin.,manual_seed
+48,85,unknown_safety,2,very_sensitive_skin,Curated caution untuk Sodium Benzoate pada kondisi very_sensitive_skin.,manual_seed
+49,86,unknown_safety,2,very_sensitive_skin,Curated caution untuk Potassium Sorbate pada kondisi very_sensitive_skin.,manual_seed
+50,87,dryness_irritation_risk,3,sensitive_skin,Curated caution untuk Citric Acid pada kondisi sensitive_skin.,manual_seed
+51,88,unknown_safety,2,very_sensitive_skin,Curated caution untuk Sodium Hydroxide pada kondisi very_sensitive_skin.,manual_seed
+52,94,unknown_safety,3,sensitive_skin,Curated caution untuk Piroctone Olamine pada kondisi sensitive_skin.,manual_seed
+53,95,dryness_irritation_risk,4,sensitive_skin,Curated caution untuk Succinic Acid pada kondisi sensitive_skin.,manual_seed

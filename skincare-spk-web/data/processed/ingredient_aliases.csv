@@ -1,0 +1,117 @@
+id,ingredient_id,alias_name,alias_type,source
+1,1,Vitamin B3,common_name,manual_seed
+2,1,Nicotinamide,common_name,manual_seed
+3,1,NIACINAMIDE,openbeautyfacts_name,openbeautyfacts
+4,2,Glycerol,common_name,manual_seed
+5,2,GLYCERIN,openbeautyfacts_name,openbeautyfacts
+6,3,Hyaluronan,common_name,manual_seed
+7,3,HYALURONIC ACID,openbeautyfacts_name,openbeautyfacts
+8,4,Sodium Salt of Hyaluronic Acid,common_name,manual_seed
+9,4,SODIUM HYALURONATE,openbeautyfacts_name,openbeautyfacts
+10,5,Beta Glucan,common_name,manual_seed
+11,6,Aloe Vera Leaf Juice,common_name,manual_seed
+12,6,fr:aloe-barbadensis-leaf-juice,openbeautyfacts_name,openbeautyfacts
+13,7,Carbamide,common_name,manual_seed
+14,7,UREA,openbeautyfacts_name,openbeautyfacts
+15,8,Pidolic Acid Sodium Salt,common_name,manual_seed
+16,8,Sodium-pca,openbeautyfacts_name,openbeautyfacts
+17,9,Ceramide 3,common_name,manual_seed
+18,9,CERAMIDE NP,openbeautyfacts_name,openbeautyfacts
+19,10,Ceramide 6 II,common_name,manual_seed
+20,10,CERAMIDE AP,openbeautyfacts_name,openbeautyfacts
+21,11,Ceramide 1,common_name,manual_seed
+22,11,CERAMIDE EOP,openbeautyfacts_name,openbeautyfacts
+23,12,CHOLESTEROL,openbeautyfacts_name,openbeautyfacts
+24,13,Omega-6 Fatty Acid,common_name,manual_seed
+25,14,Provitamin B5,common_name,manual_seed
+26,14,PANTHENOL,openbeautyfacts_name,openbeautyfacts
+27,15,SQUALANE,openbeautyfacts_name,openbeautyfacts
+28,16,ALLANTOIN,openbeautyfacts_name,openbeautyfacts
+29,17,Cica,common_name,manual_seed
+30,19,Alpha-Bisabolol,common_name,manual_seed
+31,19,BISABOLOL,openbeautyfacts_name,openbeautyfacts
+32,20,Green Tea Extract,common_name,manual_seed
+33,20,Camellia sinensis leaf extract,openbeautyfacts_name,openbeautyfacts
+34,21,Oat Extract,common_name,manual_seed
+35,22,Zinc Salt of PCA,common_name,manual_seed
+36,23,China Clay,common_name,manual_seed
+37,23,KAOLIN,openbeautyfacts_name,openbeautyfacts
+38,24,Activated Charcoal,common_name,manual_seed
+39,24,Charcoal-powder,openbeautyfacts_name,openbeautyfacts
+40,25,BHA,common_name,manual_seed
+41,25,SALICYLIC ACID,openbeautyfacts_name,openbeautyfacts
+42,28,AHA,common_name,manual_seed
+43,28,LACTIC ACID,openbeautyfacts_name,openbeautyfacts
+44,29,AHA,common_name,manual_seed
+45,30,AHA,common_name,manual_seed
+46,31,PHA,common_name,manual_seed
+47,32,PHA,common_name,manual_seed
+48,33,Vitamin C Derivative,common_name,manual_seed
+49,34,Vitamin C Derivative,common_name,manual_seed
+50,34,SODIUM ASCORBYL PHOSPHATE,openbeautyfacts_name,openbeautyfacts
+51,35,Vitamin C Derivative,common_name,manual_seed
+52,36,Alpha Arbutin,common_name,manual_seed
+53,37,Licorice Root Extract,common_name,manual_seed
+54,39,Vitamin E,common_name,manual_seed
+55,39,TOCOPHEROL,openbeautyfacts_name,openbeautyfacts
+56,40,Vitamin A Palmitate,common_name,manual_seed
+57,40,RETINYL PALMITATE,openbeautyfacts_name,openbeautyfacts
+58,43,CAFFEINE,openbeautyfacts_name,openbeautyfacts
+59,44,ZINC OXIDE,openbeautyfacts_name,openbeautyfacts
+60,45,TITANIUM DIOXIDE,openbeautyfacts_name,openbeautyfacts
+61,46,Butyl Methoxydibenzoylmethane,common_name,manual_seed
+62,46,BUTYL METHOXYDIBENZOYLMETHANE,openbeautyfacts_name,openbeautyfacts
+63,47,OCTOCRYLENE,openbeautyfacts_name,openbeautyfacts
+64,48,Tinosorb S,common_name,manual_seed
+65,49,Tinosorb M,common_name,manual_seed
+66,50,Uvinul A Plus,common_name,manual_seed
+67,50,DIETHYLAMINO HYDROXYBENZOYL HEXYL BENZOATE,openbeautyfacts_name,openbeautyfacts
+68,51,Uvinul T 150,common_name,manual_seed
+69,51,ETHYLHEXYL TRIAZONE,openbeautyfacts_name,openbeautyfacts
+70,52,Parfum,common_name,manual_seed
+71,52,Perfume,common_name,manual_seed
+72,52,fr:parfum,openbeautyfacts_name,openbeautyfacts
+73,53,LIMONENE,openbeautyfacts_name,openbeautyfacts
+74,54,LINALOOL,openbeautyfacts_name,openbeautyfacts
+75,55,fr:citral,openbeautyfacts_name,openbeautyfacts
+76,56,GERANIOL,openbeautyfacts_name,openbeautyfacts
+77,57,Denatured Alcohol,common_name,manual_seed
+78,57,ALCOHOL DENAT.,openbeautyfacts_name,openbeautyfacts
+79,58,MENTHOL,openbeautyfacts_name,openbeautyfacts
+80,59,Mentha Piperita Oil,common_name,manual_seed
+81,59,fr:mentha-piperita-oil,openbeautyfacts_name,openbeautyfacts
+82,60,Lavender Oil,common_name,manual_seed
+83,61,Eucalyptus Oil,common_name,manual_seed
+84,62,Tea Tree Oil,common_name,manual_seed
+85,63,Water,common_name,manual_seed
+86,63,WATER,openbeautyfacts_name,openbeautyfacts
+87,64,DIMETHICONE,openbeautyfacts_name,openbeautyfacts
+88,65,Petroleum Jelly,common_name,manual_seed
+89,65,PETROLATUM,openbeautyfacts_name,openbeautyfacts
+90,66,Paraffinum Liquidum,common_name,manual_seed
+91,66,PARAFFINUM LIQUIDUM,openbeautyfacts_name,openbeautyfacts
+92,68,CETEARYL ALCOHOL,openbeautyfacts_name,openbeautyfacts
+93,69,CETYL ALCOHOL,openbeautyfacts_name,openbeautyfacts
+94,70,STEARYL ALCOHOL,openbeautyfacts_name,openbeautyfacts
+95,71,BUTYLENE GLYCOL,openbeautyfacts_name,openbeautyfacts
+96,72,PROPANEDIOL,openbeautyfacts_name,openbeautyfacts
+97,73,DIPROPYLENE GLYCOL,openbeautyfacts_name,openbeautyfacts
+98,74,TREHALOSE,openbeautyfacts_name,openbeautyfacts
+99,75,Trimethylglycine,common_name,manual_seed
+100,75,BETAINE,openbeautyfacts_name,openbeautyfacts
+101,76,XYLITOL,openbeautyfacts_name,openbeautyfacts
+102,77,ARGININE,openbeautyfacts_name,openbeautyfacts
+103,78,SODIUM LACTATE,openbeautyfacts_name,openbeautyfacts
+104,79,POLYSORBATE 20,openbeautyfacts_name,openbeautyfacts
+105,80,CARBOMER,openbeautyfacts_name,openbeautyfacts
+106,81,XANTHAN GUM,openbeautyfacts_name,openbeautyfacts
+107,82,PHENOXYETHANOL,openbeautyfacts_name,openbeautyfacts
+108,83,ETHYLHEXYLGLYCERIN,openbeautyfacts_name,openbeautyfacts
+109,84,DISODIUM EDTA,openbeautyfacts_name,openbeautyfacts
+110,85,SODIUM BENZOATE,openbeautyfacts_name,openbeautyfacts
+111,86,POTASSIUM SORBATE,openbeautyfacts_name,openbeautyfacts
+112,87,CITRIC ACID,openbeautyfacts_name,openbeautyfacts
+113,88,SODIUM HYDROXIDE,openbeautyfacts_name,openbeautyfacts
+114,89,Rice Bran Extract,common_name,manual_seed
+115,93,Acetyl Glucosamine,common_name,manual_seed
+116,94,PIROCTONE OLAMINE,openbeautyfacts_name,openbeautyfacts

@@ -1,0 +1,170 @@
+[
+  {
+    "profile": "oily_acne_prone",
+    "morning": [
+      "Gentle cleanser",
+      "Moisturizer ringan dengan humectant atau soothing ingredient",
+      "Sunscreen broad spectrum"
+    ],
+    "night": [
+      "Gentle cleanser",
+      "Moisturizer ringan",
+      "Acne-care ingredient secara bertahap jika cocok"
+    ],
+    "look_for": [
+      "Niacinamide",
+      "Zinc PCA",
+      "Panthenol",
+      "Glycerin",
+      "Salicylic Acid rendah"
+    ],
+    "caution": [
+      "Fragrance jika sensitif",
+      "Eksfoliant kuat jika barrier terganggu"
+    ]
+  },
+  {
+    "profile": "dry_dehydrated",
+    "morning": [
+      "Gentle cleanser",
+      "Humectant serum",
+      "Moisturizer dengan emollient atau occlusive",
+      "Sunscreen broad spectrum"
+    ],
+    "night": [
+      "Gentle cleanser",
+      "Humectant",
+      "Barrier-support moisturizer"
+    ],
+    "look_for": [
+      "Glycerin",
+      "Sodium Hyaluronate",
+      "Urea",
+      "Ceramide NP",
+      "Squalane"
+    ],
+    "caution": [
+      "Alcohol denat",
+      "Eksfoliasi terlalu sering"
+    ]
+  },
+  {
+    "profile": "sensitive_redness",
+    "morning": [
+      "Gentle cleanser atau bilas air",
+      "Soothing moisturizer",
+      "Sunscreen broad spectrum"
+    ],
+    "night": [
+      "Gentle cleanser",
+      "Soothing dan barrier-support moisturizer"
+    ],
+    "look_for": [
+      "Panthenol",
+      "Allantoin",
+      "Centella Asiatica Extract",
+      "Madecassoside",
+      "Beta-Glucan"
+    ],
+    "caution": [
+      "Fragrance",
+      "Essential oil",
+      "Menthol",
+      "Eksfoliant kuat"
+    ]
+  },
+  {
+    "profile": "barrier_damage",
+    "morning": [
+      "Gentle cleanser",
+      "Barrier moisturizer",
+      "Sunscreen broad spectrum"
+    ],
+    "night": [
+      "Gentle cleanser",
+      "Ceramide atau panthenol moisturizer"
+    ],
+    "look_for": [
+      "Ceramide NP",
+      "Cholesterol",
+      "Panthenol",
+      "Petrolatum",
+      "Squalane"
+    ],
+    "caution": [
+      "Strong exfoliant",
+      "Alcohol denat",
+      "Fragrance"
+    ]
+  },
+  {
+    "profile": "dullness_brightening",
+    "morning": [
+      "Gentle cleanser",
+      "Brightening support jika cocok",
+      "Moisturizer",
+      "Sunscreen broad spectrum"
+    ],
+    "night": [
+      "Gentle cleanser",
+      "Hydrating step",
+      "Brightening atau eksfoliasi ringan secara bertahap"
+    ],
+    "look_for": [
+      "Niacinamide",
+      "Ascorbyl Glucoside",
+      "Alpha-Arbutin",
+      "Licorice Root Extract",
+      "Tranexamic Acid"
+    ],
+    "caution": [
+      "Photosensitivity",
+      "Eksfoliant kuat pada kulit sensitif"
+    ]
+  },
+  {
+    "profile": "normal_basic",
+    "morning": [
+      "Gentle cleanser",
+      "Moisturizer ringan",
+      "Sunscreen broad spectrum"
+    ],
+    "night": [
+      "Gentle cleanser",
+      "Moisturizer"
+    ],
+    "look_for": [
+      "Glycerin",
+      "Panthenol",
+      "Niacinamide",
+      "Squalane"
+    ],
+    "caution": [
+      "Tambahkan active secara bertahap"
+    ]
+  },
+  {
+    "profile": "combination_skin",
+    "morning": [
+      "Gentle cleanser",
+      "Moisturizer ringan pada area berminyak",
+      "Moisturizer lebih nyaman pada area kering",
+      "Sunscreen broad spectrum"
+    ],
+    "night": [
+      "Gentle cleanser",
+      "Hydrating step",
+      "Oil-control ringan pada T-zone jika perlu"
+    ],
+    "look_for": [
+      "Niacinamide",
+      "Glycerin",
+      "Panthenol",
+      "Green Tea Extract"
+    ],
+    "caution": [
+      "Over-exfoliation",
+      "Produk terlalu drying pada area kering"
+    ]
+  }
+]

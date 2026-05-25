@@ -1,0 +1,32 @@
+{
+  "project": "SPK Rekomendasi Kandungan Skincare Fuzzy Mamdani",
+  "dataset_type": "ingredient_knowledge_base",
+  "uses_brand_data": false,
+  "uses_product_data": false,
+  "uses_personal_data": false,
+  "sources": [
+    "manual_seed",
+    "openbeautyfacts_ingredient_facets",
+    "cosing_reference",
+    "cosmile_reference",
+    "cosmeticsinfo_reference"
+  ],
+  "created_at": "2026-05-25",
+  "updated_at": "2026-05-25",
+  "ingredient_count": 95,
+  "benefit_tag_count": 9,
+  "risk_tag_count": 8,
+  "fuzzy_rule_count": 15,
+  "openbeautyfacts_total_tags": 84878,
+  "openbeautyfacts_returned_tags": 1000,
+  "openbeautyfacts_matched_seed": 64,
+  "knowledge_status": "source_documented",
+  "knowledge_method": "trusted_source_literature_review",
+  "direct_expert_validation": "not_performed",
+  "expert_validation_required": false,
+  "optional_expert_review": "available_if_required",
+  "expert_validated_items": 0,
+  "knowledge_source_audit_item_count": 344,
+  "source_reference_count": 5,
+  "notes": "Dataset ini source-documented berbasis sumber tepercaya dan tidak mengklaim validasi pakar langsung."
+}

@@ -1,0 +1,6 @@
+source_id,source_name,source_type,url,used_for,trust_level,collection_method
+SRC-001,CosIng - European Commission Cosmetic Ingredient Database,official_cosmetic_ingredient_database,https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database_en,"INCI naming, cosmetic function reference, regulatory context.",high,reference_page_saved
+SRC-002,COSMILE Europe,cosmetic_ingredient_education_reference,https://cosmileeurope.eu/inci/,Ingredient function explanation and user-friendly cosmetic context.,high,reference_page_saved
+SRC-003,CosmeticsInfo,cosmetic_ingredient_education_reference,https://www.cosmeticsinfo.org/ingredients/,"Ingredient description, cosmetic use context, and safety-oriented wording.",medium_high,reference_page_saved
+SRC-004,Open Beauty Facts ingredient facets,public_ingredient_dataset,https://world.openbeautyfacts.org/ingredients.json?page_size=1000,"Ingredient name normalization, alias matching, and aggregate frequency signal.",medium,api_json_fetch
+SRC-005,Manual curated seed,internal_source_synthesis,data/raw/manual_seed/ingredient_seed.csv,"Initial knowledge base, benefit/risk tag seed, fuzzy rule seed, and routine seed.",controlled_project_seed,curated_from_project_scope_and_trusted_reference_categories

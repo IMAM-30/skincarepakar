@@ -1,0 +1,156 @@
+id,ingredient_id,benefit_tag,strength_score,evidence_note,source
+1,1,oil_control,8,Curated seed: Niacinamide mendukung tag oil_control.,manual_seed;openbeautyfacts
+2,1,brightening,7,Curated seed: Niacinamide mendukung tag brightening.,manual_seed;openbeautyfacts
+3,1,barrier_repair,6,Curated seed: Niacinamide mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+4,1,basic_support,5,Curated seed: Niacinamide mendukung tag basic_support.,manual_seed;openbeautyfacts
+5,2,hydrating,9,Curated seed: Glycerin mendukung tag hydrating.,manual_seed;openbeautyfacts
+6,2,basic_support,7,Curated seed: Glycerin mendukung tag basic_support.,manual_seed;openbeautyfacts
+7,3,hydrating,9,Curated seed: Hyaluronic Acid mendukung tag hydrating.,manual_seed;openbeautyfacts
+8,3,basic_support,6,Curated seed: Hyaluronic Acid mendukung tag basic_support.,manual_seed;openbeautyfacts
+9,4,hydrating,9,Curated seed: Sodium Hyaluronate mendukung tag hydrating.,manual_seed;openbeautyfacts
+10,4,basic_support,6,Curated seed: Sodium Hyaluronate mendukung tag basic_support.,manual_seed;openbeautyfacts
+11,5,hydrating,8,Curated seed: Beta-Glucan mendukung tag hydrating.,manual_seed
+12,5,soothing,8,Curated seed: Beta-Glucan mendukung tag soothing.,manual_seed
+13,5,barrier_repair,5,Curated seed: Beta-Glucan mendukung tag barrier_repair.,manual_seed
+14,6,hydrating,7,Curated seed: Aloe Barbadensis Leaf Juice mendukung tag hydrating.,manual_seed;openbeautyfacts
+15,6,soothing,7,Curated seed: Aloe Barbadensis Leaf Juice mendukung tag soothing.,manual_seed;openbeautyfacts
+16,7,hydrating,8,Curated seed: Urea mendukung tag hydrating.,manual_seed;openbeautyfacts
+17,7,basic_support,5,Curated seed: Urea mendukung tag basic_support.,manual_seed;openbeautyfacts
+18,8,hydrating,8,Curated seed: Sodium PCA mendukung tag hydrating.,manual_seed;openbeautyfacts
+19,8,basic_support,6,Curated seed: Sodium PCA mendukung tag basic_support.,manual_seed;openbeautyfacts
+20,9,barrier_repair,9,Curated seed: Ceramide NP mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+21,9,basic_support,7,Curated seed: Ceramide NP mendukung tag basic_support.,manual_seed;openbeautyfacts
+22,10,barrier_repair,9,Curated seed: Ceramide AP mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+23,10,basic_support,7,Curated seed: Ceramide AP mendukung tag basic_support.,manual_seed;openbeautyfacts
+24,11,barrier_repair,9,Curated seed: Ceramide EOP mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+25,11,basic_support,7,Curated seed: Ceramide EOP mendukung tag basic_support.,manual_seed;openbeautyfacts
+26,12,barrier_repair,8,Curated seed: Cholesterol mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+27,12,basic_support,6,Curated seed: Cholesterol mendukung tag basic_support.,manual_seed;openbeautyfacts
+28,13,barrier_repair,7,Curated seed: Linoleic Acid mendukung tag barrier_repair.,manual_seed
+29,13,basic_support,5,Curated seed: Linoleic Acid mendukung tag basic_support.,manual_seed
+30,14,hydrating,7,Curated seed: Panthenol mendukung tag hydrating.,manual_seed;openbeautyfacts
+31,14,soothing,8,Curated seed: Panthenol mendukung tag soothing.,manual_seed;openbeautyfacts
+32,14,barrier_repair,8,Curated seed: Panthenol mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+33,15,barrier_repair,7,Curated seed: Squalane mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+34,15,basic_support,6,Curated seed: Squalane mendukung tag basic_support.,manual_seed;openbeautyfacts
+35,16,soothing,8,Curated seed: Allantoin mendukung tag soothing.,manual_seed;openbeautyfacts
+36,16,barrier_repair,5,Curated seed: Allantoin mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+37,17,soothing,8,Curated seed: Centella Asiatica Extract mendukung tag soothing.,manual_seed
+38,17,barrier_repair,6,Curated seed: Centella Asiatica Extract mendukung tag barrier_repair.,manual_seed
+39,18,soothing,9,Curated seed: Madecassoside mendukung tag soothing.,manual_seed
+40,18,barrier_repair,7,Curated seed: Madecassoside mendukung tag barrier_repair.,manual_seed
+41,19,soothing,8,Curated seed: Bisabolol mendukung tag soothing.,manual_seed;openbeautyfacts
+42,20,soothing,7,Curated seed: Camellia Sinensis Leaf Extract mendukung tag soothing.,manual_seed;openbeautyfacts
+43,20,oil_control,6,Curated seed: Camellia Sinensis Leaf Extract mendukung tag oil_control.,manual_seed;openbeautyfacts
+44,20,basic_support,5,Curated seed: Camellia Sinensis Leaf Extract mendukung tag basic_support.,manual_seed;openbeautyfacts
+45,21,soothing,8,Curated seed: Avena Sativa Kernel Extract mendukung tag soothing.,manual_seed
+46,21,barrier_repair,6,Curated seed: Avena Sativa Kernel Extract mendukung tag barrier_repair.,manual_seed
+47,22,oil_control,8,Curated seed: Zinc PCA mendukung tag oil_control.,manual_seed
+48,22,acne_care,7,Curated seed: Zinc PCA mendukung tag acne_care.,manual_seed
+49,23,oil_control,6,Curated seed: Kaolin mendukung tag oil_control.,manual_seed;openbeautyfacts
+50,24,oil_control,5,Curated seed: Charcoal Powder mendukung tag oil_control.,manual_seed;openbeautyfacts
+51,25,acne_care,8,Curated seed: Salicylic Acid mendukung tag acne_care.,manual_seed;openbeautyfacts
+52,25,exfoliating,8,Curated seed: Salicylic Acid mendukung tag exfoliating.,manual_seed;openbeautyfacts
+53,26,acne_care,7,Curated seed: Azelaic Acid mendukung tag acne_care.,manual_seed
+54,26,brightening,6,Curated seed: Azelaic Acid mendukung tag brightening.,manual_seed
+55,26,soothing,5,Curated seed: Azelaic Acid mendukung tag soothing.,manual_seed
+56,27,acne_care,7,Curated seed: Sulfur mendukung tag acne_care.,manual_seed
+57,27,oil_control,6,Curated seed: Sulfur mendukung tag oil_control.,manual_seed
+58,28,exfoliating,7,Curated seed: Lactic Acid mendukung tag exfoliating.,manual_seed;openbeautyfacts
+59,28,brightening,5,Curated seed: Lactic Acid mendukung tag brightening.,manual_seed;openbeautyfacts
+60,28,hydrating,4,Curated seed: Lactic Acid mendukung tag hydrating.,manual_seed;openbeautyfacts
+61,29,exfoliating,6,Curated seed: Mandelic Acid mendukung tag exfoliating.,manual_seed
+62,29,brightening,5,Curated seed: Mandelic Acid mendukung tag brightening.,manual_seed
+63,30,exfoliating,8,Curated seed: Glycolic Acid mendukung tag exfoliating.,manual_seed
+64,30,brightening,6,Curated seed: Glycolic Acid mendukung tag brightening.,manual_seed
+65,31,exfoliating,5,Curated seed: Gluconolactone mendukung tag exfoliating.,manual_seed
+66,31,hydrating,4,Curated seed: Gluconolactone mendukung tag hydrating.,manual_seed
+67,31,brightening,4,Curated seed: Gluconolactone mendukung tag brightening.,manual_seed
+68,32,exfoliating,5,Curated seed: Lactobionic Acid mendukung tag exfoliating.,manual_seed
+69,32,hydrating,4,Curated seed: Lactobionic Acid mendukung tag hydrating.,manual_seed
+70,33,brightening,7,Curated seed: Ascorbyl Glucoside mendukung tag brightening.,manual_seed
+71,33,basic_support,5,Curated seed: Ascorbyl Glucoside mendukung tag basic_support.,manual_seed
+72,34,brightening,7,Curated seed: Sodium Ascorbyl Phosphate mendukung tag brightening.,manual_seed;openbeautyfacts
+73,34,acne_care,4,Curated seed: Sodium Ascorbyl Phosphate mendukung tag acne_care.,manual_seed;openbeautyfacts
+74,34,basic_support,5,Curated seed: Sodium Ascorbyl Phosphate mendukung tag basic_support.,manual_seed;openbeautyfacts
+75,35,brightening,7,Curated seed: Magnesium Ascorbyl Phosphate mendukung tag brightening.,manual_seed
+76,35,basic_support,5,Curated seed: Magnesium Ascorbyl Phosphate mendukung tag basic_support.,manual_seed
+77,36,brightening,8,Curated seed: Alpha-Arbutin mendukung tag brightening.,manual_seed
+78,37,brightening,6,Curated seed: Glycyrrhiza Glabra Root Extract mendukung tag brightening.,manual_seed
+79,37,soothing,6,Curated seed: Glycyrrhiza Glabra Root Extract mendukung tag soothing.,manual_seed
+80,38,brightening,8,Curated seed: Tranexamic Acid mendukung tag brightening.,manual_seed
+81,39,basic_support,6,Curated seed: Tocopherol mendukung tag basic_support.,manual_seed;openbeautyfacts
+82,39,barrier_repair,4,Curated seed: Tocopherol mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+83,40,brightening,5,Curated seed: Retinyl Palmitate mendukung tag brightening.,manual_seed;openbeautyfacts
+84,40,basic_support,4,Curated seed: Retinyl Palmitate mendukung tag basic_support.,manual_seed;openbeautyfacts
+85,41,basic_support,5,Curated seed: Bakuchiol mendukung tag basic_support.,manual_seed
+86,41,brightening,5,Curated seed: Bakuchiol mendukung tag brightening.,manual_seed
+87,42,basic_support,5,Curated seed: Adenosine mendukung tag basic_support.,manual_seed
+88,43,basic_support,5,Curated seed: Caffeine mendukung tag basic_support.,manual_seed;openbeautyfacts
+89,43,soothing,3,Curated seed: Caffeine mendukung tag soothing.,manual_seed;openbeautyfacts
+90,44,sunscreen_filter,9,Curated seed: Zinc Oxide mendukung tag sunscreen_filter.,manual_seed;openbeautyfacts
+91,44,soothing,3,Curated seed: Zinc Oxide mendukung tag soothing.,manual_seed;openbeautyfacts
+92,45,sunscreen_filter,9,Curated seed: Titanium Dioxide mendukung tag sunscreen_filter.,manual_seed;openbeautyfacts
+93,46,sunscreen_filter,8,Curated seed: Avobenzone mendukung tag sunscreen_filter.,manual_seed;openbeautyfacts
+94,47,sunscreen_filter,7,Curated seed: Octocrylene mendukung tag sunscreen_filter.,manual_seed;openbeautyfacts
+95,48,sunscreen_filter,9,Curated seed: Bemotrizinol mendukung tag sunscreen_filter.,manual_seed
+96,49,sunscreen_filter,9,Curated seed: Bisoctrizole mendukung tag sunscreen_filter.,manual_seed
+97,50,sunscreen_filter,9,Curated seed: Diethylamino Hydroxybenzoyl Hexyl Benzoate mendukung tag sunscreen_filter.,manual_seed;openbeautyfacts
+98,51,sunscreen_filter,9,Curated seed: Ethylhexyl Triazone mendukung tag sunscreen_filter.,manual_seed;openbeautyfacts
+99,62,acne_care,4,Curated seed: Melaleuca Alternifolia Leaf Oil mendukung tag acne_care.,manual_seed
+100,63,basic_support,3,Curated seed: Aqua mendukung tag basic_support.,manual_seed;openbeautyfacts
+101,64,barrier_repair,5,Curated seed: Dimethicone mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+102,64,basic_support,6,Curated seed: Dimethicone mendukung tag basic_support.,manual_seed;openbeautyfacts
+103,65,barrier_repair,8,Curated seed: Petrolatum mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+104,65,hydrating,5,Curated seed: Petrolatum mendukung tag hydrating.,manual_seed;openbeautyfacts
+105,66,barrier_repair,5,Curated seed: Mineral Oil mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+106,66,basic_support,5,Curated seed: Mineral Oil mendukung tag basic_support.,manual_seed;openbeautyfacts
+107,67,barrier_repair,4,Curated seed: Caprylic/Capric Triglyceride mendukung tag barrier_repair.,manual_seed
+108,67,basic_support,5,Curated seed: Caprylic/Capric Triglyceride mendukung tag basic_support.,manual_seed
+109,68,barrier_repair,4,Curated seed: Cetearyl Alcohol mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+110,68,basic_support,5,Curated seed: Cetearyl Alcohol mendukung tag basic_support.,manual_seed;openbeautyfacts
+111,69,barrier_repair,4,Curated seed: Cetyl Alcohol mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+112,69,basic_support,5,Curated seed: Cetyl Alcohol mendukung tag basic_support.,manual_seed;openbeautyfacts
+113,70,barrier_repair,4,Curated seed: Stearyl Alcohol mendukung tag barrier_repair.,manual_seed;openbeautyfacts
+114,70,basic_support,5,Curated seed: Stearyl Alcohol mendukung tag basic_support.,manual_seed;openbeautyfacts
+115,71,hydrating,6,Curated seed: Butylene Glycol mendukung tag hydrating.,manual_seed;openbeautyfacts
+116,71,basic_support,5,Curated seed: Butylene Glycol mendukung tag basic_support.,manual_seed;openbeautyfacts
+117,72,hydrating,6,Curated seed: Propanediol mendukung tag hydrating.,manual_seed;openbeautyfacts
+118,72,basic_support,5,Curated seed: Propanediol mendukung tag basic_support.,manual_seed;openbeautyfacts
+119,73,hydrating,5,Curated seed: Dipropylene Glycol mendukung tag hydrating.,manual_seed;openbeautyfacts
+120,73,basic_support,4,Curated seed: Dipropylene Glycol mendukung tag basic_support.,manual_seed;openbeautyfacts
+121,74,hydrating,6,Curated seed: Trehalose mendukung tag hydrating.,manual_seed;openbeautyfacts
+122,74,basic_support,4,Curated seed: Trehalose mendukung tag basic_support.,manual_seed;openbeautyfacts
+123,75,hydrating,6,Curated seed: Betaine mendukung tag hydrating.,manual_seed;openbeautyfacts
+124,75,soothing,4,Curated seed: Betaine mendukung tag soothing.,manual_seed;openbeautyfacts
+125,76,hydrating,5,Curated seed: Xylitol mendukung tag hydrating.,manual_seed;openbeautyfacts
+126,76,basic_support,4,Curated seed: Xylitol mendukung tag basic_support.,manual_seed;openbeautyfacts
+127,77,hydrating,4,Curated seed: Arginine mendukung tag hydrating.,manual_seed;openbeautyfacts
+128,77,basic_support,4,Curated seed: Arginine mendukung tag basic_support.,manual_seed;openbeautyfacts
+129,78,hydrating,6,Curated seed: Sodium Lactate mendukung tag hydrating.,manual_seed;openbeautyfacts
+130,78,basic_support,4,Curated seed: Sodium Lactate mendukung tag basic_support.,manual_seed;openbeautyfacts
+131,79,basic_support,3,Curated seed: Polysorbate 20 mendukung tag basic_support.,manual_seed;openbeautyfacts
+132,80,basic_support,3,Curated seed: Carbomer mendukung tag basic_support.,manual_seed;openbeautyfacts
+133,81,basic_support,3,Curated seed: Xanthan Gum mendukung tag basic_support.,manual_seed;openbeautyfacts
+134,82,basic_support,3,Curated seed: Phenoxyethanol mendukung tag basic_support.,manual_seed;openbeautyfacts
+135,83,basic_support,4,Curated seed: Ethylhexylglycerin mendukung tag basic_support.,manual_seed;openbeautyfacts
+136,84,basic_support,3,Curated seed: Disodium EDTA mendukung tag basic_support.,manual_seed;openbeautyfacts
+137,85,basic_support,3,Curated seed: Sodium Benzoate mendukung tag basic_support.,manual_seed;openbeautyfacts
+138,86,basic_support,3,Curated seed: Potassium Sorbate mendukung tag basic_support.,manual_seed;openbeautyfacts
+139,87,basic_support,3,Curated seed: Citric Acid mendukung tag basic_support.,manual_seed;openbeautyfacts
+140,87,exfoliating,2,Curated seed: Citric Acid mendukung tag exfoliating.,manual_seed;openbeautyfacts
+141,88,basic_support,2,Curated seed: Sodium Hydroxide mendukung tag basic_support.,manual_seed;openbeautyfacts
+142,89,brightening,4,Curated seed: Oryza Sativa Bran Extract mendukung tag brightening.,manual_seed
+143,89,basic_support,5,Curated seed: Oryza Sativa Bran Extract mendukung tag basic_support.,manual_seed
+144,90,hydrating,7,Curated seed: Saccharide Isomerate mendukung tag hydrating.,manual_seed
+145,90,basic_support,5,Curated seed: Saccharide Isomerate mendukung tag basic_support.,manual_seed
+146,91,hydrating,7,Curated seed: Hydroxyethyl Urea mendukung tag hydrating.,manual_seed
+147,91,basic_support,5,Curated seed: Hydroxyethyl Urea mendukung tag basic_support.,manual_seed
+148,92,hydrating,7,Curated seed: Sodium Polyglutamate mendukung tag hydrating.,manual_seed
+149,92,basic_support,5,Curated seed: Sodium Polyglutamate mendukung tag basic_support.,manual_seed
+150,93,hydrating,5,Curated seed: N-Acetyl Glucosamine mendukung tag hydrating.,manual_seed
+151,93,brightening,5,Curated seed: N-Acetyl Glucosamine mendukung tag brightening.,manual_seed
+152,94,oil_control,4,Curated seed: Piroctone Olamine mendukung tag oil_control.,manual_seed;openbeautyfacts
+153,94,basic_support,3,Curated seed: Piroctone Olamine mendukung tag basic_support.,manual_seed;openbeautyfacts
+154,95,acne_care,5,Curated seed: Succinic Acid mendukung tag acne_care.,manual_seed
+155,95,oil_control,4,Curated seed: Succinic Acid mendukung tag oil_control.,manual_seed

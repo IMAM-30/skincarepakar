@@ -1,0 +1,96 @@
+inci_name,aliases,ingredient_group,cosmetic_function,description,benefits,risks,source,reference_url,status
+Niacinamide,Vitamin B3|Nicotinamide,active,skin conditioning,Mendukung oil control brightening dan barrier support,oil_control:8|brightening:7|barrier_repair:6|basic_support:5,,manual_seed,,active
+Glycerin,Glycerol,humectant,humectant,Humectant umum untuk membantu menjaga kelembapan,hydrating:9|basic_support:7,,manual_seed,,active
+Hyaluronic Acid,Hyaluronan,humectant,humectant,Mendukung hidrasi dengan menarik air ke permukaan kulit,hydrating:9|basic_support:6,,manual_seed,,active
+Sodium Hyaluronate,Sodium Salt of Hyaluronic Acid,humectant,humectant,Bentuk garam hyaluronic acid yang umum dipakai untuk hidrasi,hydrating:9|basic_support:6,,manual_seed,,active
+Beta-Glucan,Beta Glucan,soothing_agent,skin conditioning,Mendukung hidrasi dan rasa nyaman pada kulit,hydrating:8|soothing:8|barrier_repair:5,,manual_seed,,active
+Aloe Barbadensis Leaf Juice,Aloe Vera Leaf Juice,soothing_agent,skin conditioning,Membantu memberi rasa sejuk dan mendukung hidrasi ringan,hydrating:7|soothing:7,,manual_seed,,active
+Urea,Carbamide,humectant,humectant,Membantu hidrasi dan pelembutan kulit pada kadar kosmetik,hydrating:8|basic_support:5,dryness_irritation_risk:3:very_sensitive_skin,manual_seed,,active
+Sodium PCA,Pidolic Acid Sodium Salt,humectant,humectant,Natural moisturizing factor yang mendukung hidrasi,hydrating:8|basic_support:6,,manual_seed,,active
+Ceramide NP,Ceramide 3,barrier_support,skin conditioning,Mendukung perawatan skin barrier,barrier_repair:9|basic_support:7,,manual_seed,,active
+Ceramide AP,Ceramide 6 II,barrier_support,skin conditioning,Mendukung lipid barrier kulit,barrier_repair:9|basic_support:7,,manual_seed,,active
+Ceramide EOP,Ceramide 1,barrier_support,skin conditioning,Mendukung struktur lipid barrier kulit,barrier_repair:9|basic_support:7,,manual_seed,,active
+Cholesterol,,barrier_support,skin conditioning,Lipid pendukung barrier yang sering dipasangkan dengan ceramide,barrier_repair:8|basic_support:6,,manual_seed,,active
+Linoleic Acid,Omega-6 Fatty Acid,emollient,skin conditioning,Asam lemak yang mendukung barrier dan kelembutan kulit,barrier_repair:7|basic_support:5,,manual_seed,,active
+Panthenol,Provitamin B5,barrier_support,skin conditioning,Mendukung hidrasi soothing dan barrier support,hydrating:7|soothing:8|barrier_repair:8,,manual_seed,,active
+Squalane,,emollient,emollient,Membantu melembutkan kulit dan mendukung barrier,barrier_repair:7|basic_support:6,,manual_seed,,active
+Allantoin,,soothing_agent,skin protectant,Mendukung kenyamanan kulit dan soothing,soothing:8|barrier_repair:5,,manual_seed,,active
+Centella Asiatica Extract,Cica,soothing_agent,skin conditioning,Mendukung soothing untuk kulit yang mudah reaktif,soothing:8|barrier_repair:6,,manual_seed,,active
+Madecassoside,,soothing_agent,skin conditioning,Komponen centella yang mendukung soothing dan barrier,soothing:9|barrier_repair:7,,manual_seed,,active
+Bisabolol,Alpha-Bisabolol,soothing_agent,skin conditioning,Mendukung soothing pada kulit sensitif,soothing:8,,manual_seed,,active
+Camellia Sinensis Leaf Extract,Green Tea Extract,soothing_agent,antioxidant,Mendukung soothing antioxidant dan oil control ringan,soothing:7|oil_control:6|basic_support:5,,manual_seed,,active
+Avena Sativa Kernel Extract,Oat Extract,soothing_agent,skin conditioning,Mendukung soothing dan kenyamanan kulit,soothing:8|barrier_repair:6,,manual_seed,,active
+Zinc PCA,Zinc Salt of PCA,active,skin conditioning,Mendukung oil control dan kulit mudah berjerawat ringan,oil_control:8|acne_care:7,,manual_seed,,active
+Kaolin,China Clay,absorbent,absorbent,Membantu menyerap minyak berlebih pada permukaan kulit,oil_control:6,dryness_irritation_risk:4:dry_skin,manual_seed,,active
+Charcoal Powder,Activated Charcoal,absorbent,absorbent,Membantu menyerap minyak dan kotoran pada permukaan kulit,oil_control:5,dryness_irritation_risk:4:dry_skin,manual_seed,,active
+Salicylic Acid,BHA,exfoliant,keratolytic,Mendukung perawatan komedo dan kulit berjerawat ringan,acne_care:8|exfoliating:8,strong_exfoliant_risk:8:sensitive_or_barrier_damage|photosensitivity_caution:5:daytime_use|barrier_caution:8:barrier_damage,manual_seed,,active
+Azelaic Acid,,active,skin conditioning,Mendukung kulit berjerawat ringan dan tampilan warna kulit merata,acne_care:7|brightening:6|soothing:5,dryness_irritation_risk:5:sensitive_skin,manual_seed,,active
+Sulfur,,active,skin conditioning,Mendukung oil control dan perawatan jerawat ringan,acne_care:7|oil_control:6,dryness_irritation_risk:7:dry_or_sensitive_skin,manual_seed,,active
+Lactic Acid,AHA,exfoliant,exfoliant,Mendukung eksfoliasi ringan dan hidrasi pada kadar kosmetik,exfoliating:7|brightening:5|hydrating:4,strong_exfoliant_risk:7:sensitive_or_barrier_damage|photosensitivity_caution:7:daytime_use|barrier_caution:7:barrier_damage,manual_seed,,active
+Mandelic Acid,AHA,exfoliant,exfoliant,Mendukung eksfoliasi ringan untuk tampilan kulit kusam,exfoliating:6|brightening:5,strong_exfoliant_risk:6:sensitive_or_barrier_damage|photosensitivity_caution:6:daytime_use|barrier_caution:6:barrier_damage,manual_seed,,active
+Glycolic Acid,AHA,exfoliant,exfoliant,Mendukung eksfoliasi namun perlu kehati-hatian pada kulit sensitif,exfoliating:8|brightening:6,strong_exfoliant_risk:9:sensitive_or_barrier_damage|photosensitivity_caution:8:daytime_use|barrier_caution:9:barrier_damage,manual_seed,,active
+Gluconolactone,PHA,exfoliant,exfoliant,PHA yang mendukung eksfoliasi lebih lembut,exfoliating:5|hydrating:4|brightening:4,strong_exfoliant_risk:4:very_sensitive_skin|photosensitivity_caution:4:daytime_use,manual_seed,,active
+Lactobionic Acid,PHA,exfoliant,exfoliant,PHA pendukung eksfoliasi lembut dan hidrasi ringan,exfoliating:5|hydrating:4,strong_exfoliant_risk:4:very_sensitive_skin|photosensitivity_caution:4:daytime_use,manual_seed,,active
+Ascorbyl Glucoside,Vitamin C Derivative,active,antioxidant,Mendukung tampilan kulit lebih cerah dan merata,brightening:7|basic_support:5,,manual_seed,,active
+Sodium Ascorbyl Phosphate,Vitamin C Derivative,active,antioxidant,Mendukung brightening dan antioxidant support,brightening:7|acne_care:4|basic_support:5,,manual_seed,,active
+Magnesium Ascorbyl Phosphate,Vitamin C Derivative,active,antioxidant,Mendukung brightening dengan profil lebih lembut,brightening:7|basic_support:5,,manual_seed,,active
+Alpha-Arbutin,Alpha Arbutin,active,skin conditioning,Mendukung tampilan warna kulit lebih merata,brightening:8,,manual_seed,,active
+Glycyrrhiza Glabra Root Extract,Licorice Root Extract,soothing_agent,skin conditioning,Mendukung soothing dan tampilan kulit lebih cerah,brightening:6|soothing:6,,manual_seed,,active
+Tranexamic Acid,,active,skin conditioning,Mendukung tampilan warna kulit lebih merata,brightening:8,,manual_seed,,active
+Tocopherol,Vitamin E,active,antioxidant,Antioxidant pendukung formula dan basic support,basic_support:6|barrier_repair:4,,manual_seed,,active
+Retinyl Palmitate,Vitamin A Palmitate,active,skin conditioning,Mendukung renewal kosmetik namun perlu kehati-hatian,brightening:5|basic_support:4,strong_exfoliant_risk:5:sensitive_skin|photosensitivity_caution:6:daytime_use,manual_seed,,active
+Bakuchiol,,active,skin conditioning,Mendukung tampilan kulit lebih halus dan merata,basic_support:5|brightening:5,dryness_irritation_risk:3:sensitive_skin,manual_seed,,active
+Adenosine,,active,skin conditioning,Mendukung perawatan tampilan tekstur kulit,basic_support:5,,manual_seed,,active
+Caffeine,,active,skin conditioning,Mendukung tampilan kulit segar dan antioxidant support,basic_support:5|soothing:3,,manual_seed,,active
+Zinc Oxide,,sunscreen_filter,uv filter,Filter UV mineral yang umum dalam sunscreen,sunscreen_filter:9|soothing:3,dryness_irritation_risk:2:dry_skin,manual_seed,,active
+Titanium Dioxide,,sunscreen_filter,uv filter,Filter UV mineral yang umum dalam sunscreen,sunscreen_filter:9,dryness_irritation_risk:2:dry_skin,manual_seed,,active
+Avobenzone,Butyl Methoxydibenzoylmethane,sunscreen_filter,uv filter,Filter UVA organik untuk sunscreen,sunscreen_filter:8,photosensitivity_caution:2:general_use,manual_seed,,active
+Octocrylene,,sunscreen_filter,uv filter,Filter UV organik untuk sunscreen,sunscreen_filter:7,photosensitivity_caution:2:general_use|unknown_safety:3:sensitive_skin,manual_seed,,active
+Bemotrizinol,Tinosorb S,sunscreen_filter,uv filter,Filter UV modern untuk sunscreen,sunscreen_filter:9,,manual_seed,,active
+Bisoctrizole,Tinosorb M,sunscreen_filter,uv filter,Filter UV modern untuk sunscreen,sunscreen_filter:9,,manual_seed,,active
+Diethylamino Hydroxybenzoyl Hexyl Benzoate,Uvinul A Plus,sunscreen_filter,uv filter,Filter UVA modern untuk sunscreen,sunscreen_filter:9,,manual_seed,,active
+Ethylhexyl Triazone,Uvinul T 150,sunscreen_filter,uv filter,Filter UVB modern untuk sunscreen,sunscreen_filter:9,,manual_seed,,active
+Fragrance,Parfum|Perfume,fragrance,perfuming,Bahan pewangi yang perlu diperhatikan pada kulit sensitif,,fragrance_risk:8:sensitive_skin,manual_seed,,active
+Limonene,,fragrance,perfuming,Komponen pewangi yang dapat menjadi perhatian pada kulit sensitif,,fragrance_risk:7:sensitive_skin,manual_seed,,active
+Linalool,,fragrance,perfuming,Komponen pewangi yang dapat menjadi perhatian pada kulit sensitif,,fragrance_risk:7:sensitive_skin,manual_seed,,active
+Citral,,fragrance,perfuming,Komponen pewangi yang dapat menjadi perhatian pada kulit sensitif,,fragrance_risk:7:sensitive_skin,manual_seed,,active
+Geraniol,,fragrance,perfuming,Komponen pewangi yang dapat menjadi perhatian pada kulit sensitif,,fragrance_risk:7:sensitive_skin,manual_seed,,active
+Alcohol Denat.,Denatured Alcohol,solvent,solvent,Pelarut yang perlu kehati-hatian pada kulit kering atau sensitif,,alcohol_denat_risk:8:dry_or_sensitive_skin|dryness_irritation_risk:7:dry_skin,manual_seed,,active
+Menthol,,cooling_agent,refreshing,Bahan sensasi dingin yang dapat mengganggu kulit sensitif,,dryness_irritation_risk:6:sensitive_skin|barrier_caution:5:barrier_damage,manual_seed,,active
+Peppermint Oil,Mentha Piperita Oil,essential_oil,perfuming,Essential oil yang perlu kehati-hatian pada kulit sensitif,,essential_oil_risk:8:sensitive_skin|fragrance_risk:7:sensitive_skin,manual_seed,,active
+Lavandula Angustifolia Oil,Lavender Oil,essential_oil,perfuming,Essential oil yang perlu kehati-hatian pada kulit sensitif,,essential_oil_risk:8:sensitive_skin|fragrance_risk:7:sensitive_skin,manual_seed,,active
+Eucalyptus Globulus Leaf Oil,Eucalyptus Oil,essential_oil,perfuming,Essential oil yang perlu kehati-hatian pada kulit sensitif,,essential_oil_risk:8:sensitive_skin|fragrance_risk:7:sensitive_skin,manual_seed,,active
+Melaleuca Alternifolia Leaf Oil,Tea Tree Oil,essential_oil,perfuming,Essential oil yang kadang dipakai untuk acne care namun perlu kehati-hatian,acne_care:4,essential_oil_risk:8:sensitive_skin|fragrance_risk:7:sensitive_skin,manual_seed,,active
+Aqua,Water,solvent,solvent,Pelarut dasar dalam banyak formula skincare,basic_support:3,,manual_seed,,active
+Dimethicone,,occlusive,skin protectant,Membantu mengurangi kehilangan air dan memberi slip pada kulit,barrier_repair:5|basic_support:6,,manual_seed,,active
+Petrolatum,Petroleum Jelly,occlusive,skin protectant,Occlusive kuat untuk membantu mengurangi kehilangan air,barrier_repair:8|hydrating:5,,manual_seed,,active
+Mineral Oil,Paraffinum Liquidum,emollient,emollient,Emollient dan occlusive ringan dalam formula skincare,barrier_repair:5|basic_support:5,,manual_seed,,active
+Caprylic/Capric Triglyceride,,emollient,emollient,Emollient ringan untuk membantu kelembutan kulit,barrier_repair:4|basic_support:5,,manual_seed,,active
+Cetearyl Alcohol,,emollient,emollient,Fatty alcohol yang membantu tekstur dan kelembutan formula,barrier_repair:4|basic_support:5,,manual_seed,,active
+Cetyl Alcohol,,emollient,emollient,Fatty alcohol pendukung tekstur dan kelembutan kulit,barrier_repair:4|basic_support:5,,manual_seed,,active
+Stearyl Alcohol,,emollient,emollient,Fatty alcohol pendukung tekstur dan kelembutan kulit,barrier_repair:4|basic_support:5,,manual_seed,,active
+Butylene Glycol,,humectant,humectant,Humectant dan solvent pendukung hidrasi,hydrating:6|basic_support:5,,manual_seed,,active
+Propanediol,,humectant,humectant,Humectant dan solvent pendukung hidrasi,hydrating:6|basic_support:5,,manual_seed,,active
+Dipropylene Glycol,,humectant,solvent,Solvent dan humectant pendukung formula,hydrating:5|basic_support:4,,manual_seed,,active
+Trehalose,,humectant,humectant,Gula humectant untuk mendukung hidrasi,hydrating:6|basic_support:4,,manual_seed,,active
+Betaine,Trimethylglycine,humectant,humectant,Humectant pendukung hidrasi dan kenyamanan kulit,hydrating:6|soothing:4,,manual_seed,,active
+Xylitol,,humectant,humectant,Humectant pendukung hidrasi dasar,hydrating:5|basic_support:4,,manual_seed,,active
+Arginine,,active,skin conditioning,Amino acid pendukung hidrasi dan pH formula,hydrating:4|basic_support:4,,manual_seed,,active
+Sodium Lactate,,humectant,humectant,Natural moisturizing factor pendukung hidrasi,hydrating:6|basic_support:4,,manual_seed,,active
+Polysorbate 20,,surfactant,surfactant,Solubilizer dan surfactant pendukung formula,basic_support:3,,manual_seed,,active
+Carbomer,,thickener,viscosity controlling,Polymer pembentuk gel pendukung tekstur formula,basic_support:3,,manual_seed,,active
+Xanthan Gum,,thickener,viscosity controlling,Thickener pendukung tekstur formula,basic_support:3,,manual_seed,,active
+Phenoxyethanol,,preservative,preservative,Pengawet umum dalam formula kosmetik,basic_support:3,unknown_safety:2:very_sensitive_skin,manual_seed,,active
+Ethylhexylglycerin,,preservative,skin conditioning,Pendukung pengawet dan conditioning ringan,basic_support:4,,manual_seed,,active
+Disodium EDTA,,chelating_agent,chelating,Pendukung stabilitas formula,basic_support:3,,manual_seed,,active
+Sodium Benzoate,,preservative,preservative,Pengawet umum dalam formula kosmetik,basic_support:3,unknown_safety:2:very_sensitive_skin,manual_seed,,active
+Potassium Sorbate,,preservative,preservative,Pengawet umum dalam formula kosmetik,basic_support:3,unknown_safety:2:very_sensitive_skin,manual_seed,,active
+Citric Acid,,ph_adjuster,buffering,Pengatur pH formula dan dapat mendukung eksfoliasi sangat ringan,basic_support:3|exfoliating:2,dryness_irritation_risk:3:sensitive_skin,manual_seed,,active
+Sodium Hydroxide,,ph_adjuster,buffering,Pengatur pH formula,basic_support:2,unknown_safety:2:very_sensitive_skin,manual_seed,,active
+Oryza Sativa Bran Extract,Rice Bran Extract,active,skin conditioning,Mendukung antioxidant dan tampilan kulit lebih segar,brightening:4|basic_support:5,,manual_seed,,active
+Saccharide Isomerate,,humectant,humectant,Humectant pendukung hidrasi bertahap,hydrating:7|basic_support:5,,manual_seed,,active
+Hydroxyethyl Urea,,humectant,humectant,Humectant pendukung hidrasi ringan,hydrating:7|basic_support:5,,manual_seed,,active
+Sodium Polyglutamate,,humectant,humectant,Humectant polymer untuk membantu hidrasi,hydrating:7|basic_support:5,,manual_seed,,active
+N-Acetyl Glucosamine,Acetyl Glucosamine,active,skin conditioning,Mendukung hidrasi dan tampilan warna kulit merata,hydrating:5|brightening:5,,manual_seed,,active
+Piroctone Olamine,,active,skin conditioning,Bahan pendukung perawatan kulit berminyak tertentu,oil_control:4|basic_support:3,unknown_safety:3:sensitive_skin,manual_seed,,active
+Succinic Acid,,active,skin conditioning,Mendukung perawatan kulit berjerawat ringan dan oil control ringan,acne_care:5|oil_control:4,dryness_irritation_risk:4:sensitive_skin,manual_seed,,active

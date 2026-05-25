@@ -1,0 +1,8 @@
+id,condition_name,recommended_benefit_tag,caution_risk_tag,priority_score,note
+1,jerawat,acne_care,dryness_irritation_risk,8,Acne-care untuk dukungan kulit berjerawat ringan dengan perhatian sensitivitas.
+2,komedo,exfoliating,strong_exfoliant_risk,7,Eksfoliasi ringan dapat dipertimbangkan dengan batasan sensitivitas.
+3,dehidrasi,hydrating,dryness_irritation_risk,9,Prioritaskan humectant dan barrier support.
+4,kemerahan,soothing,fragrance_risk,9,Prioritaskan soothing dan batasi fragrance.
+5,skin_barrier_terganggu,barrier_repair,barrier_caution,10,Prioritaskan barrier repair dan batasi eksfoliant kuat.
+6,kusam,brightening,photosensitivity_caution,7,Brightening kosmetik perlu sunscreen dan kehati-hatian eksfoliasi.
+7,bekas_jerawat_ringan,brightening,photosensitivity_caution,7,Dukung tampilan warna kulit lebih merata tanpa klaim menghilangkan flek.

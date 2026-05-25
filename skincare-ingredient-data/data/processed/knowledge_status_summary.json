@@ -1,0 +1,10 @@
+{
+  "knowledge_status": "source_documented",
+  "knowledge_method": "trusted_source_literature_review",
+  "direct_expert_validation": "not_performed",
+  "optional_expert_review": "available_if_required",
+  "total_source_documented_items": 344,
+  "source_reference_count": 5,
+  "expert_validated_items": 0,
+  "notes": "Dataset ini menggunakan pengetahuan berbasis sumber tepercaya dan tidak mengklaim validasi pakar langsung."
+}

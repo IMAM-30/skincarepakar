@@ -1,0 +1,4032 @@
+{
+  "generatedAt": "2026-05-25T09:16:46.106Z",
+  "metadata": {
+    "project": "SPK Rekomendasi Kandungan Skincare Fuzzy Mamdani",
+    "dataset_type": "ingredient_knowledge_base",
+    "uses_brand_data": false,
+    "uses_product_data": false,
+    "uses_personal_data": false,
+    "sources": [
+      "manual_seed",
+      "openbeautyfacts_ingredient_facets",
+      "cosing_reference",
+      "cosmile_reference",
+      "cosmeticsinfo_reference"
+    ],
+    "created_at": "2026-05-25",
+    "updated_at": "2026-05-25",
+    "ingredient_count": 95,
+    "benefit_tag_count": 9,
+    "risk_tag_count": 8,
+    "fuzzy_rule_count": 15,
+    "openbeautyfacts_total_tags": 84878,
+    "openbeautyfacts_returned_tags": 1000,
+    "openbeautyfacts_matched_seed": 64,
+    "knowledge_status": "source_documented",
+    "knowledge_method": "trusted_source_literature_review",
+    "direct_expert_validation": "not_performed",
+    "expert_validation_required": false,
+    "optional_expert_review": "available_if_required",
+    "expert_validated_items": 0,
+    "knowledge_source_audit_item_count": 344,
+    "source_reference_count": 5,
+    "notes": "Dataset ini source-documented berbasis sumber tepercaya dan tidak mengklaim validasi pakar langsung."
+  },
+  "skinTypes": [
+    {
+      "id": 1,
+      "name": "berminyak",
+      "oilinessDefault": 8,
+      "drynessDefault": 2,
+      "sensitivityDefault": 4,
+      "barrierDamageDefault": 3,
+      "description": "Kulit cenderung menghasilkan minyak berlebih."
+    },
+    {
+      "id": 2,
+      "name": "kering",
+      "oilinessDefault": 2,
+      "drynessDefault": 8,
+      "sensitivityDefault": 5,
+      "barrierDamageDefault": 5,
+      "description": "Kulit cenderung kurang lembap dan terasa tertarik."
+    },
+    {
+      "id": 3,
+      "name": "kombinasi",
+      "oilinessDefault": 6,
+      "drynessDefault": 5,
+      "sensitivityDefault": 4,
+      "barrierDamageDefault": 3,
+      "description": "Sebagian area berminyak dan area lain normal atau kering."
+    },
+    {
+      "id": 4,
+      "name": "normal",
+      "oilinessDefault": 4,
+      "drynessDefault": 4,
+      "sensitivityDefault": 3,
+      "barrierDamageDefault": 2,
+      "description": "Kulit relatif seimbang."
+    },
+    {
+      "id": 5,
+      "name": "sensitif",
+      "oilinessDefault": 4,
+      "drynessDefault": 5,
+      "sensitivityDefault": 9,
+      "barrierDamageDefault": 6,
+      "description": "Kulit mudah terasa perih merah atau reaktif."
+    }
+  ],
+  "skinConditions": [
+    {
+      "id": 1,
+      "name": "jerawat",
+      "acneLevel": 8,
+      "dullnessLevel": 2,
+      "rednessLevel": 4,
+      "barrierDamageLevel": 3,
+      "drynessLevel": 2,
+      "oilinessLevel": 6,
+      "description": "Kondisi jerawat aktif ringan atau mudah breakout."
+    },
+    {
+      "id": 2,
+      "name": "komedo",
+      "acneLevel": 6,
+      "dullnessLevel": 2,
+      "rednessLevel": 2,
+      "barrierDamageLevel": 2,
+      "drynessLevel": 1,
+      "oilinessLevel": 7,
+      "description": "Kondisi pori tersumbat atau komedo."
+    },
+    {
+      "id": 3,
+      "name": "dehidrasi",
+      "acneLevel": 1,
+      "dullnessLevel": 4,
+      "rednessLevel": 3,
+      "barrierDamageLevel": 5,
+      "drynessLevel": 8,
+      "oilinessLevel": 2,
+      "description": "Kulit terasa kurang air atau tertarik."
+    },
+    {
+      "id": 4,
+      "name": "kemerahan",
+      "acneLevel": 2,
+      "dullnessLevel": 2,
+      "rednessLevel": 8,
+      "barrierDamageLevel": 6,
+      "drynessLevel": 4,
+      "oilinessLevel": 3,
+      "description": "Kulit mudah merah atau reaktif."
+    },
+    {
+      "id": 5,
+      "name": "skin_barrier_terganggu",
+      "acneLevel": 2,
+      "dullnessLevel": 3,
+      "rednessLevel": 6,
+      "barrierDamageLevel": 9,
+      "drynessLevel": 7,
+      "oilinessLevel": 3,
+      "description": "Skin barrier lemah atau mudah iritasi."
+    },
+    {
+      "id": 6,
+      "name": "kusam",
+      "acneLevel": 1,
+      "dullnessLevel": 8,
+      "rednessLevel": 2,
+      "barrierDamageLevel": 2,
+      "drynessLevel": 3,
+      "oilinessLevel": 3,
+      "description": "Kulit tampak kurang cerah atau tidak merata."
+    },
+    {
+      "id": 7,
+      "name": "bekas_jerawat_ringan",
+      "acneLevel": 2,
+      "dullnessLevel": 7,
+      "rednessLevel": 2,
+      "barrierDamageLevel": 2,
+      "drynessLevel": 2,
+      "oilinessLevel": 3,
+      "description": "Tampilan noda ringan pascajerawat tanpa klaim medis."
+    }
+  ],
+  "fuzzyRules": [
+    {
+      "code": "R1",
+      "if": {
+        "oiliness": "high",
+        "acne": "high"
+      },
+      "then": {
+        "oil_control_need": "high",
+        "acne_care_need": "high",
+        "soothing_need": "medium",
+        "irritation_risk": "medium"
+      },
+      "description": "Kulit berminyak dan berjerawat membutuhkan oil-control dan acne-care dengan dukungan soothing."
+    },
+    {
+      "code": "R2",
+      "if": {
+        "dryness": "high"
+      },
+      "then": {
+        "hydration_need": "high",
+        "barrier_repair_need": "high"
+      },
+      "description": "Kulit kering membutuhkan hidrasi dan barrier support tinggi."
+    },
+    {
+      "code": "R3",
+      "if": {
+        "sensitivity": "high"
+      },
+      "then": {
+        "soothing_need": "high",
+        "irritation_risk": "high"
+      },
+      "description": "Sensitivitas tinggi menaikkan kebutuhan soothing dan risiko iritasi."
+    },
+    {
+      "code": "R4",
+      "if": {
+        "acne": "high",
+        "sensitivity": "high"
+      },
+      "then": {
+        "acne_care_need": "medium",
+        "soothing_need": "high",
+        "irritation_risk": "high",
+        "exfoliation_caution": "high"
+      },
+      "description": "Acne dengan sensitivitas tinggi perlu acne-care lebih hati-hati."
+    },
+    {
+      "code": "R5",
+      "if": {
+        "barrier_damage": "high"
+      },
+      "then": {
+        "barrier_repair_need": "high",
+        "hydration_need": "high",
+        "exfoliation_caution": "high"
+      },
+      "description": "Barrier terganggu memprioritaskan barrier repair dan membatasi eksfoliasi."
+    },
+    {
+      "code": "R6",
+      "if": {
+        "oiliness": "high",
+        "sensitivity": "low"
+      },
+      "then": {
+        "oil_control_need": "high",
+        "acne_care_need": "medium"
+      },
+      "description": "Kulit berminyak dengan sensitivitas rendah dapat menerima oil-control lebih aktif."
+    },
+    {
+      "code": "R7",
+      "if": {
+        "dryness": "high",
+        "sensitivity": "high"
+      },
+      "then": {
+        "hydration_need": "high",
+        "barrier_repair_need": "high",
+        "soothing_need": "high",
+        "irritation_risk": "high"
+      },
+      "description": "Kulit kering sensitif perlu hidrasi barrier repair dan soothing."
+    },
+    {
+      "code": "R8",
+      "if": {
+        "dullness": "high",
+        "sensitivity": "low"
+      },
+      "then": {
+        "brightening_need": "high",
+        "exfoliation_caution": "medium"
+      },
+      "description": "Kulit kusam dengan sensitivitas rendah dapat memakai brightening lebih aktif."
+    },
+    {
+      "code": "R9",
+      "if": {
+        "dullness": "high",
+        "sensitivity": "high"
+      },
+      "then": {
+        "brightening_need": "medium",
+        "exfoliation_caution": "high"
+      },
+      "description": "Kulit kusam sensitif tetap butuh brightening namun lebih hati-hati."
+    },
+    {
+      "code": "R10",
+      "if": {
+        "oiliness": "low",
+        "dryness": "low",
+        "acne": "low",
+        "sensitivity": "low"
+      },
+      "then": {
+        "hydration_need": "medium",
+        "irritation_risk": "low"
+      },
+      "description": "Profil seimbang tetap membutuhkan basic hydration."
+    },
+    {
+      "code": "R11",
+      "if": {
+        "acne": "medium",
+        "sensitivity": "medium"
+      },
+      "then": {
+        "acne_care_need": "medium",
+        "soothing_need": "medium",
+        "irritation_risk": "medium"
+      },
+      "description": "Acne dan sensitivitas sedang membutuhkan balancing antara acne-care dan soothing."
+    },
+    {
+      "code": "R12",
+      "if": {
+        "acne": "high",
+        "barrier_damage": "high"
+      },
+      "then": {
+        "acne_care_need": "medium",
+        "barrier_repair_need": "high",
+        "exfoliation_caution": "high"
+      },
+      "description": "Acne dengan barrier terganggu memprioritaskan barrier repair."
+    },
+    {
+      "code": "R13",
+      "if": {
+        "sensitivity": "high"
+      },
+      "then": {
+        "soothing_need": "high",
+        "irritation_risk": "high",
+        "fragrance_penalty": "high"
+      },
+      "description": "Kemerahan dimapping ke sensitivitas dan memicu penalti fragrance."
+    },
+    {
+      "code": "R14",
+      "if": {
+        "oiliness": "high",
+        "dryness": "high"
+      },
+      "then": {
+        "hydration_need": "high",
+        "oil_control_need": "medium"
+      },
+      "description": "Kondisi berminyak sekaligus kering memerlukan hidrasi tanpa oil-control berlebihan."
+    },
+    {
+      "code": "R15",
+      "if": {
+        "sensitivity": "low",
+        "barrier_damage": "low"
+      },
+      "then": {
+        "irritation_risk": "low"
+      },
+      "description": "Sensitivitas dan barrier damage rendah menurunkan risiko iritasi awal."
+    }
+  ],
+  "routines": [
+    {
+      "profile": "oily_acne_prone",
+      "morning": [
+        "Gentle cleanser",
+        "Moisturizer ringan dengan humectant atau soothing ingredient",
+        "Sunscreen broad spectrum"
+      ],
+      "night": [
+        "Gentle cleanser",
+        "Moisturizer ringan",
+        "Acne-care ingredient secara bertahap jika cocok"
+      ],
+      "look_for": [
+        "Niacinamide",
+        "Zinc PCA",
+        "Panthenol",
+        "Glycerin",
+        "Salicylic Acid rendah"
+      ],
+      "caution": [
+        "Fragrance jika sensitif",
+        "Eksfoliant kuat jika barrier terganggu"
+      ]
+    },
+    {
+      "profile": "dry_dehydrated",
+      "morning": [
+        "Gentle cleanser",
+        "Humectant serum",
+        "Moisturizer dengan emollient atau occlusive",
+        "Sunscreen broad spectrum"
+      ],
+      "night": [
+        "Gentle cleanser",
+        "Humectant",
+        "Barrier-support moisturizer"
+      ],
+      "look_for": [
+        "Glycerin",
+        "Sodium Hyaluronate",
+        "Urea",
+        "Ceramide NP",
+        "Squalane"
+      ],
+      "caution": [
+        "Alcohol denat",
+        "Eksfoliasi terlalu sering"
+      ]
+    },
+    {
+      "profile": "sensitive_redness",
+      "morning": [
+        "Gentle cleanser atau bilas air",
+        "Soothing moisturizer",
+        "Sunscreen broad spectrum"
+      ],
+      "night": [
+        "Gentle cleanser",
+        "Soothing dan barrier-support moisturizer"
+      ],
+      "look_for": [
+        "Panthenol",
+        "Allantoin",
+        "Centella Asiatica Extract",
+        "Madecassoside",
+        "Beta-Glucan"
+      ],
+      "caution": [
+        "Fragrance",
+        "Essential oil",
+        "Menthol",
+        "Eksfoliant kuat"
+      ]
+    },
+    {
+      "profile": "barrier_damage",
+      "morning": [
+        "Gentle cleanser",
+        "Barrier moisturizer",
+        "Sunscreen broad spectrum"
+      ],
+      "night": [
+        "Gentle cleanser",
+        "Ceramide atau panthenol moisturizer"
+      ],
+      "look_for": [
+        "Ceramide NP",
+        "Cholesterol",
+        "Panthenol",
+        "Petrolatum",
+        "Squalane"
+      ],
+      "caution": [
+        "Strong exfoliant",
+        "Alcohol denat",
+        "Fragrance"
+      ]
+    },
+    {
+      "profile": "dullness_brightening",
+      "morning": [
+        "Gentle cleanser",
+        "Brightening support jika cocok",
+        "Moisturizer",
+        "Sunscreen broad spectrum"
+      ],
+      "night": [
+        "Gentle cleanser",
+        "Hydrating step",
+        "Brightening atau eksfoliasi ringan secara bertahap"
+      ],
+      "look_for": [
+        "Niacinamide",
+        "Ascorbyl Glucoside",
+        "Alpha-Arbutin",
+        "Licorice Root Extract",
+        "Tranexamic Acid"
+      ],
+      "caution": [
+        "Photosensitivity",
+        "Eksfoliant kuat pada kulit sensitif"
+      ]
+    },
+    {
+      "profile": "normal_basic",
+      "morning": [
+        "Gentle cleanser",
+        "Moisturizer ringan",
+        "Sunscreen broad spectrum"
+      ],
+      "night": [
+        "Gentle cleanser",
+        "Moisturizer"
+      ],
+      "look_for": [
+        "Glycerin",
+        "Panthenol",
+        "Niacinamide",
+        "Squalane"
+      ],
+      "caution": [
+        "Tambahkan active secara bertahap"
+      ]
+    },
+    {
+      "profile": "combination_skin",
+      "morning": [
+        "Gentle cleanser",
+        "Moisturizer ringan pada area berminyak",
+        "Moisturizer lebih nyaman pada area kering",
+        "Sunscreen broad spectrum"
+      ],
+      "night": [
+        "Gentle cleanser",
+        "Hydrating step",
+        "Oil-control ringan pada T-zone jika perlu"
+      ],
+      "look_for": [
+        "Niacinamide",
+        "Glycerin",
+        "Panthenol",
+        "Green Tea Extract"
+      ],
+      "caution": [
+        "Over-exfoliation",
+        "Produk terlalu drying pada area kering"
+      ]
+    }
+  ],
+  "ingredients": [
+    {
+      "id": 1,
+      "inciName": "Niacinamide",
+      "normalizedName": "niacinamide",
+      "aliasPrimary": "Vitamin B3",
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung oil control brightening dan barrier support",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/niacinamide",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Vitamin B3",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "Nicotinamide",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "NIACINAMIDE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "oil_control",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Niacinamide mendukung tag oil_control.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Niacinamide mendukung tag brightening.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Niacinamide mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Niacinamide mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 2,
+      "inciName": "Glycerin",
+      "normalizedName": "glycerin",
+      "aliasPrimary": "Glycerol",
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "humectant",
+      "description": "Humectant umum untuk membantu menjaga kelembapan",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/glycerin",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Glycerol",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "GLYCERIN",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 9,
+          "evidenceNote": "Curated seed: Glycerin mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Glycerin mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 3,
+      "inciName": "Hyaluronic Acid",
+      "normalizedName": "hyaluronic acid",
+      "aliasPrimary": "Hyaluronan",
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "humectant",
+      "description": "Mendukung hidrasi dengan menarik air ke permukaan kulit",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/hyaluronic-acid",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Hyaluronan",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "HYALURONIC ACID",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 9,
+          "evidenceNote": "Curated seed: Hyaluronic Acid mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Hyaluronic Acid mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 4,
+      "inciName": "Sodium Hyaluronate",
+      "normalizedName": "sodium hyaluronate",
+      "aliasPrimary": "Sodium Salt of Hyaluronic Acid",
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "humectant",
+      "description": "Bentuk garam hyaluronic acid yang umum dipakai untuk hidrasi",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/sodium-hyaluronate",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Sodium Salt of Hyaluronic Acid",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "SODIUM HYALURONATE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 9,
+          "evidenceNote": "Curated seed: Sodium Hyaluronate mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Sodium Hyaluronate mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 5,
+      "inciName": "Beta-Glucan",
+      "normalizedName": "beta-glucan",
+      "aliasPrimary": "Beta Glucan",
+      "ingredientGroup": "soothing_agent",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung hidrasi dan rasa nyaman pada kulit",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Beta Glucan",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Beta-Glucan mendukung tag hydrating.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "soothing",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Beta-Glucan mendukung tag soothing.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Beta-Glucan mendukung tag barrier_repair.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 6,
+      "inciName": "Aloe Barbadensis Leaf Juice",
+      "normalizedName": "aloe barbadensis leaf juice",
+      "aliasPrimary": "Aloe Vera Leaf Juice",
+      "ingredientGroup": "soothing_agent",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Membantu memberi rasa sejuk dan mendukung hidrasi ringan",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/fr:aloe-barbadensis-leaf-juice",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Aloe Vera Leaf Juice",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "fr:aloe-barbadensis-leaf-juice",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Aloe Barbadensis Leaf Juice mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "soothing",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Aloe Barbadensis Leaf Juice mendukung tag soothing.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 7,
+      "inciName": "Urea",
+      "normalizedName": "urea",
+      "aliasPrimary": "Carbamide",
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "humectant",
+      "description": "Membantu hidrasi dan pelembutan kulit pada kadar kosmetik",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/urea",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Carbamide",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "UREA",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Urea mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Urea mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "dryness_irritation_risk",
+          "riskScore": 3,
+          "riskCondition": "very_sensitive_skin",
+          "note": "Curated caution untuk Urea pada kondisi very_sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "inciName": "Sodium PCA",
+      "normalizedName": "sodium pca",
+      "aliasPrimary": "Pidolic Acid Sodium Salt",
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "humectant",
+      "description": "Natural moisturizing factor yang mendukung hidrasi",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/sodium-pca",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Pidolic Acid Sodium Salt",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "Sodium-pca",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Sodium PCA mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Sodium PCA mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 9,
+      "inciName": "Ceramide NP",
+      "normalizedName": "ceramide np",
+      "aliasPrimary": "Ceramide 3",
+      "ingredientGroup": "barrier_support",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung perawatan skin barrier",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/ceramide-np",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Ceramide 3",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "CERAMIDE NP",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 9,
+          "evidenceNote": "Curated seed: Ceramide NP mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Ceramide NP mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 10,
+      "inciName": "Ceramide AP",
+      "normalizedName": "ceramide ap",
+      "aliasPrimary": "Ceramide 6 II",
+      "ingredientGroup": "barrier_support",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung lipid barrier kulit",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/ceramide-ap",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Ceramide 6 II",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "CERAMIDE AP",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 9,
+          "evidenceNote": "Curated seed: Ceramide AP mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Ceramide AP mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 11,
+      "inciName": "Ceramide EOP",
+      "normalizedName": "ceramide eop",
+      "aliasPrimary": "Ceramide 1",
+      "ingredientGroup": "barrier_support",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung struktur lipid barrier kulit",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/ceramide-eop",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Ceramide 1",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "CERAMIDE EOP",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 9,
+          "evidenceNote": "Curated seed: Ceramide EOP mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Ceramide EOP mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 12,
+      "inciName": "Cholesterol",
+      "normalizedName": "cholesterol",
+      "aliasPrimary": null,
+      "ingredientGroup": "barrier_support",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Lipid pendukung barrier yang sering dipasangkan dengan ceramide",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/cholesterol",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "CHOLESTEROL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Cholesterol mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Cholesterol mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 13,
+      "inciName": "Linoleic Acid",
+      "normalizedName": "linoleic acid",
+      "aliasPrimary": "Omega-6 Fatty Acid",
+      "ingredientGroup": "emollient",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Asam lemak yang mendukung barrier dan kelembutan kulit",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Omega-6 Fatty Acid",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Linoleic Acid mendukung tag barrier_repair.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Linoleic Acid mendukung tag basic_support.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 14,
+      "inciName": "Panthenol",
+      "normalizedName": "panthenol",
+      "aliasPrimary": "Provitamin B5",
+      "ingredientGroup": "barrier_support",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung hidrasi soothing dan barrier support",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/panthenol",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Provitamin B5",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "PANTHENOL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Panthenol mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "soothing",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Panthenol mendukung tag soothing.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Panthenol mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 15,
+      "inciName": "Squalane",
+      "normalizedName": "squalane",
+      "aliasPrimary": null,
+      "ingredientGroup": "emollient",
+      "cosmeticFunction": "emollient",
+      "description": "Membantu melembutkan kulit dan mendukung barrier",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/squalane",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "SQUALANE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Squalane mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Squalane mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 16,
+      "inciName": "Allantoin",
+      "normalizedName": "allantoin",
+      "aliasPrimary": null,
+      "ingredientGroup": "soothing_agent",
+      "cosmeticFunction": "skin protectant",
+      "description": "Mendukung kenyamanan kulit dan soothing",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/allantoin",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "ALLANTOIN",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "soothing",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Allantoin mendukung tag soothing.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Allantoin mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 17,
+      "inciName": "Centella Asiatica Extract",
+      "normalizedName": "centella asiatica extract",
+      "aliasPrimary": "Cica",
+      "ingredientGroup": "soothing_agent",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung soothing untuk kulit yang mudah reaktif",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Cica",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "soothing",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Centella Asiatica Extract mendukung tag soothing.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Centella Asiatica Extract mendukung tag barrier_repair.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 18,
+      "inciName": "Madecassoside",
+      "normalizedName": "madecassoside",
+      "aliasPrimary": null,
+      "ingredientGroup": "soothing_agent",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Komponen centella yang mendukung soothing dan barrier",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [],
+      "benefits": [
+        {
+          "benefitTag": "soothing",
+          "strengthScore": 9,
+          "evidenceNote": "Curated seed: Madecassoside mendukung tag soothing.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Madecassoside mendukung tag barrier_repair.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 19,
+      "inciName": "Bisabolol",
+      "normalizedName": "bisabolol",
+      "aliasPrimary": "Alpha-Bisabolol",
+      "ingredientGroup": "soothing_agent",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung soothing pada kulit sensitif",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/bisabolol",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Alpha-Bisabolol",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "BISABOLOL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "soothing",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Bisabolol mendukung tag soothing.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 20,
+      "inciName": "Camellia Sinensis Leaf Extract",
+      "normalizedName": "camellia sinensis leaf extract",
+      "aliasPrimary": "Green Tea Extract",
+      "ingredientGroup": "soothing_agent",
+      "cosmeticFunction": "antioxidant",
+      "description": "Mendukung soothing antioxidant dan oil control ringan",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/camellia-sinensis-leaf-extract",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Green Tea Extract",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "Camellia sinensis leaf extract",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "soothing",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Camellia Sinensis Leaf Extract mendukung tag soothing.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "oil_control",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Camellia Sinensis Leaf Extract mendukung tag oil_control.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Camellia Sinensis Leaf Extract mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 21,
+      "inciName": "Avena Sativa Kernel Extract",
+      "normalizedName": "avena sativa kernel extract",
+      "aliasPrimary": "Oat Extract",
+      "ingredientGroup": "soothing_agent",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung soothing dan kenyamanan kulit",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Oat Extract",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "soothing",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Avena Sativa Kernel Extract mendukung tag soothing.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Avena Sativa Kernel Extract mendukung tag barrier_repair.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 22,
+      "inciName": "Zinc PCA",
+      "normalizedName": "zinc pca",
+      "aliasPrimary": "Zinc Salt of PCA",
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung oil control dan kulit mudah berjerawat ringan",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Zinc Salt of PCA",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "oil_control",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Zinc PCA mendukung tag oil_control.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "acne_care",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Zinc PCA mendukung tag acne_care.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 23,
+      "inciName": "Kaolin",
+      "normalizedName": "kaolin",
+      "aliasPrimary": "China Clay",
+      "ingredientGroup": "absorbent",
+      "cosmeticFunction": "absorbent",
+      "description": "Membantu menyerap minyak berlebih pada permukaan kulit",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/kaolin",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "China Clay",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "KAOLIN",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "oil_control",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Kaolin mendukung tag oil_control.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "dryness_irritation_risk",
+          "riskScore": 4,
+          "riskCondition": "dry_skin",
+          "note": "Curated caution untuk Kaolin pada kondisi dry_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "inciName": "Charcoal Powder",
+      "normalizedName": "charcoal powder",
+      "aliasPrimary": "Activated Charcoal",
+      "ingredientGroup": "absorbent",
+      "cosmeticFunction": "absorbent",
+      "description": "Membantu menyerap minyak dan kotoran pada permukaan kulit",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/charcoal-powder",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Activated Charcoal",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "Charcoal-powder",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "oil_control",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Charcoal Powder mendukung tag oil_control.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "dryness_irritation_risk",
+          "riskScore": 4,
+          "riskCondition": "dry_skin",
+          "note": "Curated caution untuk Charcoal Powder pada kondisi dry_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "inciName": "Salicylic Acid",
+      "normalizedName": "salicylic acid",
+      "aliasPrimary": "BHA",
+      "ingredientGroup": "exfoliant",
+      "cosmeticFunction": "keratolytic",
+      "description": "Mendukung perawatan komedo dan kulit berjerawat ringan",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/salicylic-acid",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "BHA",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "SALICYLIC ACID",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "acne_care",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Salicylic Acid mendukung tag acne_care.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "exfoliating",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Salicylic Acid mendukung tag exfoliating.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "strong_exfoliant_risk",
+          "riskScore": 8,
+          "riskCondition": "sensitive_or_barrier_damage",
+          "note": "Curated caution untuk Salicylic Acid pada kondisi sensitive_or_barrier_damage.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "photosensitivity_caution",
+          "riskScore": 5,
+          "riskCondition": "daytime_use",
+          "note": "Curated caution untuk Salicylic Acid pada kondisi daytime_use.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "barrier_caution",
+          "riskScore": 8,
+          "riskCondition": "barrier_damage",
+          "note": "Curated caution untuk Salicylic Acid pada kondisi barrier_damage.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "inciName": "Azelaic Acid",
+      "normalizedName": "azelaic acid",
+      "aliasPrimary": null,
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung kulit berjerawat ringan dan tampilan warna kulit merata",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [],
+      "benefits": [
+        {
+          "benefitTag": "acne_care",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Azelaic Acid mendukung tag acne_care.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Azelaic Acid mendukung tag brightening.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "soothing",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Azelaic Acid mendukung tag soothing.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "dryness_irritation_risk",
+          "riskScore": 5,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Azelaic Acid pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "inciName": "Sulfur",
+      "normalizedName": "sulfur",
+      "aliasPrimary": null,
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung oil control dan perawatan jerawat ringan",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [],
+      "benefits": [
+        {
+          "benefitTag": "acne_care",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Sulfur mendukung tag acne_care.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "oil_control",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Sulfur mendukung tag oil_control.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "dryness_irritation_risk",
+          "riskScore": 7,
+          "riskCondition": "dry_or_sensitive_skin",
+          "note": "Curated caution untuk Sulfur pada kondisi dry_or_sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "inciName": "Lactic Acid",
+      "normalizedName": "lactic acid",
+      "aliasPrimary": "AHA",
+      "ingredientGroup": "exfoliant",
+      "cosmeticFunction": "exfoliant",
+      "description": "Mendukung eksfoliasi ringan dan hidrasi pada kadar kosmetik",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/lactic-acid",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "AHA",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "LACTIC ACID",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "exfoliating",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Lactic Acid mendukung tag exfoliating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Lactic Acid mendukung tag brightening.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Lactic Acid mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "strong_exfoliant_risk",
+          "riskScore": 7,
+          "riskCondition": "sensitive_or_barrier_damage",
+          "note": "Curated caution untuk Lactic Acid pada kondisi sensitive_or_barrier_damage.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "photosensitivity_caution",
+          "riskScore": 7,
+          "riskCondition": "daytime_use",
+          "note": "Curated caution untuk Lactic Acid pada kondisi daytime_use.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "barrier_caution",
+          "riskScore": 7,
+          "riskCondition": "barrier_damage",
+          "note": "Curated caution untuk Lactic Acid pada kondisi barrier_damage.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "inciName": "Mandelic Acid",
+      "normalizedName": "mandelic acid",
+      "aliasPrimary": "AHA",
+      "ingredientGroup": "exfoliant",
+      "cosmeticFunction": "exfoliant",
+      "description": "Mendukung eksfoliasi ringan untuk tampilan kulit kusam",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "AHA",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "exfoliating",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Mandelic Acid mendukung tag exfoliating.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Mandelic Acid mendukung tag brightening.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "strong_exfoliant_risk",
+          "riskScore": 6,
+          "riskCondition": "sensitive_or_barrier_damage",
+          "note": "Curated caution untuk Mandelic Acid pada kondisi sensitive_or_barrier_damage.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "photosensitivity_caution",
+          "riskScore": 6,
+          "riskCondition": "daytime_use",
+          "note": "Curated caution untuk Mandelic Acid pada kondisi daytime_use.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "barrier_caution",
+          "riskScore": 6,
+          "riskCondition": "barrier_damage",
+          "note": "Curated caution untuk Mandelic Acid pada kondisi barrier_damage.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "inciName": "Glycolic Acid",
+      "normalizedName": "glycolic acid",
+      "aliasPrimary": "AHA",
+      "ingredientGroup": "exfoliant",
+      "cosmeticFunction": "exfoliant",
+      "description": "Mendukung eksfoliasi namun perlu kehati-hatian pada kulit sensitif",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "AHA",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "exfoliating",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Glycolic Acid mendukung tag exfoliating.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Glycolic Acid mendukung tag brightening.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "strong_exfoliant_risk",
+          "riskScore": 9,
+          "riskCondition": "sensitive_or_barrier_damage",
+          "note": "Curated caution untuk Glycolic Acid pada kondisi sensitive_or_barrier_damage.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "photosensitivity_caution",
+          "riskScore": 8,
+          "riskCondition": "daytime_use",
+          "note": "Curated caution untuk Glycolic Acid pada kondisi daytime_use.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "barrier_caution",
+          "riskScore": 9,
+          "riskCondition": "barrier_damage",
+          "note": "Curated caution untuk Glycolic Acid pada kondisi barrier_damage.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "inciName": "Gluconolactone",
+      "normalizedName": "gluconolactone",
+      "aliasPrimary": "PHA",
+      "ingredientGroup": "exfoliant",
+      "cosmeticFunction": "exfoliant",
+      "description": "PHA yang mendukung eksfoliasi lebih lembut",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "PHA",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "exfoliating",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Gluconolactone mendukung tag exfoliating.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Gluconolactone mendukung tag hydrating.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Gluconolactone mendukung tag brightening.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "strong_exfoliant_risk",
+          "riskScore": 4,
+          "riskCondition": "very_sensitive_skin",
+          "note": "Curated caution untuk Gluconolactone pada kondisi very_sensitive_skin.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "photosensitivity_caution",
+          "riskScore": 4,
+          "riskCondition": "daytime_use",
+          "note": "Curated caution untuk Gluconolactone pada kondisi daytime_use.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "inciName": "Lactobionic Acid",
+      "normalizedName": "lactobionic acid",
+      "aliasPrimary": "PHA",
+      "ingredientGroup": "exfoliant",
+      "cosmeticFunction": "exfoliant",
+      "description": "PHA pendukung eksfoliasi lembut dan hidrasi ringan",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "PHA",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "exfoliating",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Lactobionic Acid mendukung tag exfoliating.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Lactobionic Acid mendukung tag hydrating.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "strong_exfoliant_risk",
+          "riskScore": 4,
+          "riskCondition": "very_sensitive_skin",
+          "note": "Curated caution untuk Lactobionic Acid pada kondisi very_sensitive_skin.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "photosensitivity_caution",
+          "riskScore": 4,
+          "riskCondition": "daytime_use",
+          "note": "Curated caution untuk Lactobionic Acid pada kondisi daytime_use.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "inciName": "Ascorbyl Glucoside",
+      "normalizedName": "ascorbyl glucoside",
+      "aliasPrimary": "Vitamin C Derivative",
+      "ingredientGroup": "active",
+      "cosmeticFunction": "antioxidant",
+      "description": "Mendukung tampilan kulit lebih cerah dan merata",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Vitamin C Derivative",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Ascorbyl Glucoside mendukung tag brightening.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Ascorbyl Glucoside mendukung tag basic_support.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 34,
+      "inciName": "Sodium Ascorbyl Phosphate",
+      "normalizedName": "sodium ascorbyl phosphate",
+      "aliasPrimary": "Vitamin C Derivative",
+      "ingredientGroup": "active",
+      "cosmeticFunction": "antioxidant",
+      "description": "Mendukung brightening dan antioxidant support",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/sodium-ascorbyl-phosphate",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Vitamin C Derivative",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "SODIUM ASCORBYL PHOSPHATE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Sodium Ascorbyl Phosphate mendukung tag brightening.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "acne_care",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Sodium Ascorbyl Phosphate mendukung tag acne_care.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Sodium Ascorbyl Phosphate mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 35,
+      "inciName": "Magnesium Ascorbyl Phosphate",
+      "normalizedName": "magnesium ascorbyl phosphate",
+      "aliasPrimary": "Vitamin C Derivative",
+      "ingredientGroup": "active",
+      "cosmeticFunction": "antioxidant",
+      "description": "Mendukung brightening dengan profil lebih lembut",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Vitamin C Derivative",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Magnesium Ascorbyl Phosphate mendukung tag brightening.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Magnesium Ascorbyl Phosphate mendukung tag basic_support.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 36,
+      "inciName": "Alpha-Arbutin",
+      "normalizedName": "alpha-arbutin",
+      "aliasPrimary": "Alpha Arbutin",
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung tampilan warna kulit lebih merata",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Alpha Arbutin",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Alpha-Arbutin mendukung tag brightening.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 37,
+      "inciName": "Glycyrrhiza Glabra Root Extract",
+      "normalizedName": "glycyrrhiza glabra root extract",
+      "aliasPrimary": "Licorice Root Extract",
+      "ingredientGroup": "soothing_agent",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung soothing dan tampilan kulit lebih cerah",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Licorice Root Extract",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Glycyrrhiza Glabra Root Extract mendukung tag brightening.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "soothing",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Glycyrrhiza Glabra Root Extract mendukung tag soothing.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 38,
+      "inciName": "Tranexamic Acid",
+      "normalizedName": "tranexamic acid",
+      "aliasPrimary": null,
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung tampilan warna kulit lebih merata",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [],
+      "benefits": [
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Tranexamic Acid mendukung tag brightening.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 39,
+      "inciName": "Tocopherol",
+      "normalizedName": "tocopherol",
+      "aliasPrimary": "Vitamin E",
+      "ingredientGroup": "active",
+      "cosmeticFunction": "antioxidant",
+      "description": "Antioxidant pendukung formula dan basic support",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/tocopherol",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Vitamin E",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "TOCOPHEROL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Tocopherol mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Tocopherol mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 40,
+      "inciName": "Retinyl Palmitate",
+      "normalizedName": "retinyl palmitate",
+      "aliasPrimary": "Vitamin A Palmitate",
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung renewal kosmetik namun perlu kehati-hatian",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/retinyl-palmitate",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Vitamin A Palmitate",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "RETINYL PALMITATE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Retinyl Palmitate mendukung tag brightening.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Retinyl Palmitate mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "strong_exfoliant_risk",
+          "riskScore": 5,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Retinyl Palmitate pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "photosensitivity_caution",
+          "riskScore": 6,
+          "riskCondition": "daytime_use",
+          "note": "Curated caution untuk Retinyl Palmitate pada kondisi daytime_use.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "inciName": "Bakuchiol",
+      "normalizedName": "bakuchiol",
+      "aliasPrimary": null,
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung tampilan kulit lebih halus dan merata",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Bakuchiol mendukung tag basic_support.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Bakuchiol mendukung tag brightening.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "dryness_irritation_risk",
+          "riskScore": 3,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Bakuchiol pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "inciName": "Adenosine",
+      "normalizedName": "adenosine",
+      "aliasPrimary": null,
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung perawatan tampilan tekstur kulit",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Adenosine mendukung tag basic_support.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 43,
+      "inciName": "Caffeine",
+      "normalizedName": "caffeine",
+      "aliasPrimary": null,
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung tampilan kulit segar dan antioxidant support",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/caffeine",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "CAFFEINE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Caffeine mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "soothing",
+          "strengthScore": 3,
+          "evidenceNote": "Curated seed: Caffeine mendukung tag soothing.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 44,
+      "inciName": "Zinc Oxide",
+      "normalizedName": "zinc oxide",
+      "aliasPrimary": null,
+      "ingredientGroup": "sunscreen_filter",
+      "cosmeticFunction": "uv filter",
+      "description": "Filter UV mineral yang umum dalam sunscreen",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/zinc-oxide",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "ZINC OXIDE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "sunscreen_filter",
+          "strengthScore": 9,
+          "evidenceNote": "Curated seed: Zinc Oxide mendukung tag sunscreen_filter.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "soothing",
+          "strengthScore": 3,
+          "evidenceNote": "Curated seed: Zinc Oxide mendukung tag soothing.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "dryness_irritation_risk",
+          "riskScore": 2,
+          "riskCondition": "dry_skin",
+          "note": "Curated caution untuk Zinc Oxide pada kondisi dry_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "inciName": "Titanium Dioxide",
+      "normalizedName": "titanium dioxide",
+      "aliasPrimary": null,
+      "ingredientGroup": "sunscreen_filter",
+      "cosmeticFunction": "uv filter",
+      "description": "Filter UV mineral yang umum dalam sunscreen",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/titanium-dioxide",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "TITANIUM DIOXIDE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "sunscreen_filter",
+          "strengthScore": 9,
+          "evidenceNote": "Curated seed: Titanium Dioxide mendukung tag sunscreen_filter.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "dryness_irritation_risk",
+          "riskScore": 2,
+          "riskCondition": "dry_skin",
+          "note": "Curated caution untuk Titanium Dioxide pada kondisi dry_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "inciName": "Avobenzone",
+      "normalizedName": "avobenzone",
+      "aliasPrimary": "Butyl Methoxydibenzoylmethane",
+      "ingredientGroup": "sunscreen_filter",
+      "cosmeticFunction": "uv filter",
+      "description": "Filter UVA organik untuk sunscreen",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/butyl-methoxydibenzoylmethane",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Butyl Methoxydibenzoylmethane",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "BUTYL METHOXYDIBENZOYLMETHANE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "sunscreen_filter",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Avobenzone mendukung tag sunscreen_filter.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "photosensitivity_caution",
+          "riskScore": 2,
+          "riskCondition": "general_use",
+          "note": "Curated caution untuk Avobenzone pada kondisi general_use.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "inciName": "Octocrylene",
+      "normalizedName": "octocrylene",
+      "aliasPrimary": null,
+      "ingredientGroup": "sunscreen_filter",
+      "cosmeticFunction": "uv filter",
+      "description": "Filter UV organik untuk sunscreen",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/octocrylene",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "OCTOCRYLENE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "sunscreen_filter",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Octocrylene mendukung tag sunscreen_filter.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "photosensitivity_caution",
+          "riskScore": 2,
+          "riskCondition": "general_use",
+          "note": "Curated caution untuk Octocrylene pada kondisi general_use.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "unknown_safety",
+          "riskScore": 3,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Octocrylene pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "inciName": "Bemotrizinol",
+      "normalizedName": "bemotrizinol",
+      "aliasPrimary": "Tinosorb S",
+      "ingredientGroup": "sunscreen_filter",
+      "cosmeticFunction": "uv filter",
+      "description": "Filter UV modern untuk sunscreen",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Tinosorb S",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "sunscreen_filter",
+          "strengthScore": 9,
+          "evidenceNote": "Curated seed: Bemotrizinol mendukung tag sunscreen_filter.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 49,
+      "inciName": "Bisoctrizole",
+      "normalizedName": "bisoctrizole",
+      "aliasPrimary": "Tinosorb M",
+      "ingredientGroup": "sunscreen_filter",
+      "cosmeticFunction": "uv filter",
+      "description": "Filter UV modern untuk sunscreen",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Tinosorb M",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "sunscreen_filter",
+          "strengthScore": 9,
+          "evidenceNote": "Curated seed: Bisoctrizole mendukung tag sunscreen_filter.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 50,
+      "inciName": "Diethylamino Hydroxybenzoyl Hexyl Benzoate",
+      "normalizedName": "diethylamino hydroxybenzoyl hexyl benzoate",
+      "aliasPrimary": "Uvinul A Plus",
+      "ingredientGroup": "sunscreen_filter",
+      "cosmeticFunction": "uv filter",
+      "description": "Filter UVA modern untuk sunscreen",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/diethylamino-hydroxybenzoyl-hexyl-benzoate",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Uvinul A Plus",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "DIETHYLAMINO HYDROXYBENZOYL HEXYL BENZOATE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "sunscreen_filter",
+          "strengthScore": 9,
+          "evidenceNote": "Curated seed: Diethylamino Hydroxybenzoyl Hexyl Benzoate mendukung tag sunscreen_filter.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 51,
+      "inciName": "Ethylhexyl Triazone",
+      "normalizedName": "ethylhexyl triazone",
+      "aliasPrimary": "Uvinul T 150",
+      "ingredientGroup": "sunscreen_filter",
+      "cosmeticFunction": "uv filter",
+      "description": "Filter UVB modern untuk sunscreen",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/ethylhexyl-triazone",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Uvinul T 150",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "ETHYLHEXYL TRIAZONE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "sunscreen_filter",
+          "strengthScore": 9,
+          "evidenceNote": "Curated seed: Ethylhexyl Triazone mendukung tag sunscreen_filter.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 52,
+      "inciName": "Fragrance",
+      "normalizedName": "fragrance",
+      "aliasPrimary": "Parfum",
+      "ingredientGroup": "fragrance",
+      "cosmeticFunction": "perfuming",
+      "description": "Bahan pewangi yang perlu diperhatikan pada kulit sensitif",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/fr:parfum",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Parfum",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "Perfume",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "fr:parfum",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [],
+      "risks": [
+        {
+          "riskTag": "fragrance_risk",
+          "riskScore": 8,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Fragrance pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "inciName": "Limonene",
+      "normalizedName": "limonene",
+      "aliasPrimary": null,
+      "ingredientGroup": "fragrance",
+      "cosmeticFunction": "perfuming",
+      "description": "Komponen pewangi yang dapat menjadi perhatian pada kulit sensitif",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/limonene",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "LIMONENE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [],
+      "risks": [
+        {
+          "riskTag": "fragrance_risk",
+          "riskScore": 7,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Limonene pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "inciName": "Linalool",
+      "normalizedName": "linalool",
+      "aliasPrimary": null,
+      "ingredientGroup": "fragrance",
+      "cosmeticFunction": "perfuming",
+      "description": "Komponen pewangi yang dapat menjadi perhatian pada kulit sensitif",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/linalool",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "LINALOOL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [],
+      "risks": [
+        {
+          "riskTag": "fragrance_risk",
+          "riskScore": 7,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Linalool pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "inciName": "Citral",
+      "normalizedName": "citral",
+      "aliasPrimary": null,
+      "ingredientGroup": "fragrance",
+      "cosmeticFunction": "perfuming",
+      "description": "Komponen pewangi yang dapat menjadi perhatian pada kulit sensitif",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/fr:citral",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "fr:citral",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [],
+      "risks": [
+        {
+          "riskTag": "fragrance_risk",
+          "riskScore": 7,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Citral pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "inciName": "Geraniol",
+      "normalizedName": "geraniol",
+      "aliasPrimary": null,
+      "ingredientGroup": "fragrance",
+      "cosmeticFunction": "perfuming",
+      "description": "Komponen pewangi yang dapat menjadi perhatian pada kulit sensitif",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/geraniol",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "GERANIOL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [],
+      "risks": [
+        {
+          "riskTag": "fragrance_risk",
+          "riskScore": 7,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Geraniol pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "inciName": "Alcohol Denat.",
+      "normalizedName": "alcohol denat",
+      "aliasPrimary": "Denatured Alcohol",
+      "ingredientGroup": "solvent",
+      "cosmeticFunction": "solvent",
+      "description": "Pelarut yang perlu kehati-hatian pada kulit kering atau sensitif",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/alcohol-denat",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Denatured Alcohol",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "ALCOHOL DENAT.",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [],
+      "risks": [
+        {
+          "riskTag": "alcohol_denat_risk",
+          "riskScore": 8,
+          "riskCondition": "dry_or_sensitive_skin",
+          "note": "Curated caution untuk Alcohol Denat. pada kondisi dry_or_sensitive_skin.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "dryness_irritation_risk",
+          "riskScore": 7,
+          "riskCondition": "dry_skin",
+          "note": "Curated caution untuk Alcohol Denat. pada kondisi dry_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "inciName": "Menthol",
+      "normalizedName": "menthol",
+      "aliasPrimary": null,
+      "ingredientGroup": "cooling_agent",
+      "cosmeticFunction": "refreshing",
+      "description": "Bahan sensasi dingin yang dapat mengganggu kulit sensitif",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/menthol",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "MENTHOL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [],
+      "risks": [
+        {
+          "riskTag": "dryness_irritation_risk",
+          "riskScore": 6,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Menthol pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "barrier_caution",
+          "riskScore": 5,
+          "riskCondition": "barrier_damage",
+          "note": "Curated caution untuk Menthol pada kondisi barrier_damage.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "inciName": "Peppermint Oil",
+      "normalizedName": "peppermint oil",
+      "aliasPrimary": "Mentha Piperita Oil",
+      "ingredientGroup": "essential_oil",
+      "cosmeticFunction": "perfuming",
+      "description": "Essential oil yang perlu kehati-hatian pada kulit sensitif",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/fr:mentha-piperita-oil",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Mentha Piperita Oil",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "fr:mentha-piperita-oil",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [],
+      "risks": [
+        {
+          "riskTag": "essential_oil_risk",
+          "riskScore": 8,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Peppermint Oil pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "fragrance_risk",
+          "riskScore": 7,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Peppermint Oil pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "inciName": "Lavandula Angustifolia Oil",
+      "normalizedName": "lavandula angustifolia oil",
+      "aliasPrimary": "Lavender Oil",
+      "ingredientGroup": "essential_oil",
+      "cosmeticFunction": "perfuming",
+      "description": "Essential oil yang perlu kehati-hatian pada kulit sensitif",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Lavender Oil",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [],
+      "risks": [
+        {
+          "riskTag": "essential_oil_risk",
+          "riskScore": 8,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Lavandula Angustifolia Oil pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "fragrance_risk",
+          "riskScore": 7,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Lavandula Angustifolia Oil pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "inciName": "Eucalyptus Globulus Leaf Oil",
+      "normalizedName": "eucalyptus globulus leaf oil",
+      "aliasPrimary": "Eucalyptus Oil",
+      "ingredientGroup": "essential_oil",
+      "cosmeticFunction": "perfuming",
+      "description": "Essential oil yang perlu kehati-hatian pada kulit sensitif",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Eucalyptus Oil",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [],
+      "risks": [
+        {
+          "riskTag": "essential_oil_risk",
+          "riskScore": 8,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Eucalyptus Globulus Leaf Oil pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "fragrance_risk",
+          "riskScore": 7,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Eucalyptus Globulus Leaf Oil pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "inciName": "Melaleuca Alternifolia Leaf Oil",
+      "normalizedName": "melaleuca alternifolia leaf oil",
+      "aliasPrimary": "Tea Tree Oil",
+      "ingredientGroup": "essential_oil",
+      "cosmeticFunction": "perfuming",
+      "description": "Essential oil yang kadang dipakai untuk acne care namun perlu kehati-hatian",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Tea Tree Oil",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "acne_care",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Melaleuca Alternifolia Leaf Oil mendukung tag acne_care.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "essential_oil_risk",
+          "riskScore": 8,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Melaleuca Alternifolia Leaf Oil pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        },
+        {
+          "riskTag": "fragrance_risk",
+          "riskScore": 7,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Melaleuca Alternifolia Leaf Oil pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "inciName": "Aqua",
+      "normalizedName": "aqua",
+      "aliasPrimary": "Water",
+      "ingredientGroup": "solvent",
+      "cosmeticFunction": "solvent",
+      "description": "Pelarut dasar dalam banyak formula skincare",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/water",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Water",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "WATER",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 3,
+          "evidenceNote": "Curated seed: Aqua mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 64,
+      "inciName": "Dimethicone",
+      "normalizedName": "dimethicone",
+      "aliasPrimary": null,
+      "ingredientGroup": "occlusive",
+      "cosmeticFunction": "skin protectant",
+      "description": "Membantu mengurangi kehilangan air dan memberi slip pada kulit",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/dimethicone",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "DIMETHICONE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Dimethicone mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Dimethicone mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 65,
+      "inciName": "Petrolatum",
+      "normalizedName": "petrolatum",
+      "aliasPrimary": "Petroleum Jelly",
+      "ingredientGroup": "occlusive",
+      "cosmeticFunction": "skin protectant",
+      "description": "Occlusive kuat untuk membantu mengurangi kehilangan air",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/petrolatum",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Petroleum Jelly",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "PETROLATUM",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 8,
+          "evidenceNote": "Curated seed: Petrolatum mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Petrolatum mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 66,
+      "inciName": "Mineral Oil",
+      "normalizedName": "mineral oil",
+      "aliasPrimary": "Paraffinum Liquidum",
+      "ingredientGroup": "emollient",
+      "cosmeticFunction": "emollient",
+      "description": "Emollient dan occlusive ringan dalam formula skincare",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/paraffinum-liquidum",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Paraffinum Liquidum",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "PARAFFINUM LIQUIDUM",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Mineral Oil mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Mineral Oil mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 67,
+      "inciName": "Caprylic/Capric Triglyceride",
+      "normalizedName": "caprylic/capric triglyceride",
+      "aliasPrimary": null,
+      "ingredientGroup": "emollient",
+      "cosmeticFunction": "emollient",
+      "description": "Emollient ringan untuk membantu kelembutan kulit",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [],
+      "benefits": [
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Caprylic/Capric Triglyceride mendukung tag barrier_repair.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Caprylic/Capric Triglyceride mendukung tag basic_support.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 68,
+      "inciName": "Cetearyl Alcohol",
+      "normalizedName": "cetearyl alcohol",
+      "aliasPrimary": null,
+      "ingredientGroup": "emollient",
+      "cosmeticFunction": "emollient",
+      "description": "Fatty alcohol yang membantu tekstur dan kelembutan formula",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/cetearyl-alcohol",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "CETEARYL ALCOHOL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Cetearyl Alcohol mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Cetearyl Alcohol mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 69,
+      "inciName": "Cetyl Alcohol",
+      "normalizedName": "cetyl alcohol",
+      "aliasPrimary": null,
+      "ingredientGroup": "emollient",
+      "cosmeticFunction": "emollient",
+      "description": "Fatty alcohol pendukung tekstur dan kelembutan kulit",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/cetyl-alcohol",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "CETYL ALCOHOL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Cetyl Alcohol mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Cetyl Alcohol mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 70,
+      "inciName": "Stearyl Alcohol",
+      "normalizedName": "stearyl alcohol",
+      "aliasPrimary": null,
+      "ingredientGroup": "emollient",
+      "cosmeticFunction": "emollient",
+      "description": "Fatty alcohol pendukung tekstur dan kelembutan kulit",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/stearyl-alcohol",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "STEARYL ALCOHOL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "barrier_repair",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Stearyl Alcohol mendukung tag barrier_repair.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Stearyl Alcohol mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 71,
+      "inciName": "Butylene Glycol",
+      "normalizedName": "butylene glycol",
+      "aliasPrimary": null,
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "humectant",
+      "description": "Humectant dan solvent pendukung hidrasi",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/butylene-glycol",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "BUTYLENE GLYCOL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Butylene Glycol mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Butylene Glycol mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 72,
+      "inciName": "Propanediol",
+      "normalizedName": "propanediol",
+      "aliasPrimary": null,
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "humectant",
+      "description": "Humectant dan solvent pendukung hidrasi",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/propanediol",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "PROPANEDIOL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Propanediol mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Propanediol mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 73,
+      "inciName": "Dipropylene Glycol",
+      "normalizedName": "dipropylene glycol",
+      "aliasPrimary": null,
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "solvent",
+      "description": "Solvent dan humectant pendukung formula",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/dipropylene-glycol",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "DIPROPYLENE GLYCOL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Dipropylene Glycol mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Dipropylene Glycol mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 74,
+      "inciName": "Trehalose",
+      "normalizedName": "trehalose",
+      "aliasPrimary": null,
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "humectant",
+      "description": "Gula humectant untuk mendukung hidrasi",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/trehalose",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "TREHALOSE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Trehalose mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Trehalose mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 75,
+      "inciName": "Betaine",
+      "normalizedName": "betaine",
+      "aliasPrimary": "Trimethylglycine",
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "humectant",
+      "description": "Humectant pendukung hidrasi dan kenyamanan kulit",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/betaine",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Trimethylglycine",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        },
+        {
+          "aliasName": "BETAINE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Betaine mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "soothing",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Betaine mendukung tag soothing.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 76,
+      "inciName": "Xylitol",
+      "normalizedName": "xylitol",
+      "aliasPrimary": null,
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "humectant",
+      "description": "Humectant pendukung hidrasi dasar",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/xylitol",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "XYLITOL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Xylitol mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Xylitol mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 77,
+      "inciName": "Arginine",
+      "normalizedName": "arginine",
+      "aliasPrimary": null,
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Amino acid pendukung hidrasi dan pH formula",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/arginine",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "ARGININE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Arginine mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Arginine mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 78,
+      "inciName": "Sodium Lactate",
+      "normalizedName": "sodium lactate",
+      "aliasPrimary": null,
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "humectant",
+      "description": "Natural moisturizing factor pendukung hidrasi",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/sodium-lactate",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "SODIUM LACTATE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 6,
+          "evidenceNote": "Curated seed: Sodium Lactate mendukung tag hydrating.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Sodium Lactate mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 79,
+      "inciName": "Polysorbate 20",
+      "normalizedName": "polysorbate 20",
+      "aliasPrimary": null,
+      "ingredientGroup": "surfactant",
+      "cosmeticFunction": "surfactant",
+      "description": "Solubilizer dan surfactant pendukung formula",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/polysorbate-20",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "POLYSORBATE 20",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 3,
+          "evidenceNote": "Curated seed: Polysorbate 20 mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 80,
+      "inciName": "Carbomer",
+      "normalizedName": "carbomer",
+      "aliasPrimary": null,
+      "ingredientGroup": "thickener",
+      "cosmeticFunction": "viscosity controlling",
+      "description": "Polymer pembentuk gel pendukung tekstur formula",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/carbomer",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "CARBOMER",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 3,
+          "evidenceNote": "Curated seed: Carbomer mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 81,
+      "inciName": "Xanthan Gum",
+      "normalizedName": "xanthan gum",
+      "aliasPrimary": null,
+      "ingredientGroup": "thickener",
+      "cosmeticFunction": "viscosity controlling",
+      "description": "Thickener pendukung tekstur formula",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/xanthan-gum",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "XANTHAN GUM",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 3,
+          "evidenceNote": "Curated seed: Xanthan Gum mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 82,
+      "inciName": "Phenoxyethanol",
+      "normalizedName": "phenoxyethanol",
+      "aliasPrimary": null,
+      "ingredientGroup": "preservative",
+      "cosmeticFunction": "preservative",
+      "description": "Pengawet umum dalam formula kosmetik",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/phenoxyethanol",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "PHENOXYETHANOL",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 3,
+          "evidenceNote": "Curated seed: Phenoxyethanol mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "unknown_safety",
+          "riskScore": 2,
+          "riskCondition": "very_sensitive_skin",
+          "note": "Curated caution untuk Phenoxyethanol pada kondisi very_sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "inciName": "Ethylhexylglycerin",
+      "normalizedName": "ethylhexylglycerin",
+      "aliasPrimary": null,
+      "ingredientGroup": "preservative",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Pendukung pengawet dan conditioning ringan",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/ethylhexylglycerin",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "ETHYLHEXYLGLYCERIN",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Ethylhexylglycerin mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 84,
+      "inciName": "Disodium EDTA",
+      "normalizedName": "disodium edta",
+      "aliasPrimary": null,
+      "ingredientGroup": "chelating_agent",
+      "cosmeticFunction": "chelating",
+      "description": "Pendukung stabilitas formula",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/disodium-edta",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "DISODIUM EDTA",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 3,
+          "evidenceNote": "Curated seed: Disodium EDTA mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 85,
+      "inciName": "Sodium Benzoate",
+      "normalizedName": "sodium benzoate",
+      "aliasPrimary": null,
+      "ingredientGroup": "preservative",
+      "cosmeticFunction": "preservative",
+      "description": "Pengawet umum dalam formula kosmetik",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/sodium-benzoate",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "SODIUM BENZOATE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 3,
+          "evidenceNote": "Curated seed: Sodium Benzoate mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "unknown_safety",
+          "riskScore": 2,
+          "riskCondition": "very_sensitive_skin",
+          "note": "Curated caution untuk Sodium Benzoate pada kondisi very_sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "inciName": "Potassium Sorbate",
+      "normalizedName": "potassium sorbate",
+      "aliasPrimary": null,
+      "ingredientGroup": "preservative",
+      "cosmeticFunction": "preservative",
+      "description": "Pengawet umum dalam formula kosmetik",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/potassium-sorbate",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "POTASSIUM SORBATE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 3,
+          "evidenceNote": "Curated seed: Potassium Sorbate mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "unknown_safety",
+          "riskScore": 2,
+          "riskCondition": "very_sensitive_skin",
+          "note": "Curated caution untuk Potassium Sorbate pada kondisi very_sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "inciName": "Citric Acid",
+      "normalizedName": "citric acid",
+      "aliasPrimary": null,
+      "ingredientGroup": "ph_adjuster",
+      "cosmeticFunction": "buffering",
+      "description": "Pengatur pH formula dan dapat mendukung eksfoliasi sangat ringan",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/citric-acid",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "CITRIC ACID",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 3,
+          "evidenceNote": "Curated seed: Citric Acid mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "exfoliating",
+          "strengthScore": 2,
+          "evidenceNote": "Curated seed: Citric Acid mendukung tag exfoliating.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "dryness_irritation_risk",
+          "riskScore": 3,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Citric Acid pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "inciName": "Sodium Hydroxide",
+      "normalizedName": "sodium hydroxide",
+      "aliasPrimary": null,
+      "ingredientGroup": "ph_adjuster",
+      "cosmeticFunction": "buffering",
+      "description": "Pengatur pH formula",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/sodium-hydroxide",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "SODIUM HYDROXIDE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 2,
+          "evidenceNote": "Curated seed: Sodium Hydroxide mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "unknown_safety",
+          "riskScore": 2,
+          "riskCondition": "very_sensitive_skin",
+          "note": "Curated caution untuk Sodium Hydroxide pada kondisi very_sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "inciName": "Oryza Sativa Bran Extract",
+      "normalizedName": "oryza sativa bran extract",
+      "aliasPrimary": "Rice Bran Extract",
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung antioxidant dan tampilan kulit lebih segar",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Rice Bran Extract",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Oryza Sativa Bran Extract mendukung tag brightening.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Oryza Sativa Bran Extract mendukung tag basic_support.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 90,
+      "inciName": "Saccharide Isomerate",
+      "normalizedName": "saccharide isomerate",
+      "aliasPrimary": null,
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "humectant",
+      "description": "Humectant pendukung hidrasi bertahap",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Saccharide Isomerate mendukung tag hydrating.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Saccharide Isomerate mendukung tag basic_support.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 91,
+      "inciName": "Hydroxyethyl Urea",
+      "normalizedName": "hydroxyethyl urea",
+      "aliasPrimary": null,
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "humectant",
+      "description": "Humectant pendukung hidrasi ringan",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Hydroxyethyl Urea mendukung tag hydrating.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Hydroxyethyl Urea mendukung tag basic_support.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 92,
+      "inciName": "Sodium Polyglutamate",
+      "normalizedName": "sodium polyglutamate",
+      "aliasPrimary": null,
+      "ingredientGroup": "humectant",
+      "cosmeticFunction": "humectant",
+      "description": "Humectant polymer untuk membantu hidrasi",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 7,
+          "evidenceNote": "Curated seed: Sodium Polyglutamate mendukung tag hydrating.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Sodium Polyglutamate mendukung tag basic_support.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 93,
+      "inciName": "N-Acetyl Glucosamine",
+      "normalizedName": "n-acetyl glucosamine",
+      "aliasPrimary": "Acetyl Glucosamine",
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung hidrasi dan tampilan warna kulit merata",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "Acetyl Glucosamine",
+          "aliasType": "common_name",
+          "source": "manual_seed"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "hydrating",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: N-Acetyl Glucosamine mendukung tag hydrating.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "brightening",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: N-Acetyl Glucosamine mendukung tag brightening.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": []
+    },
+    {
+      "id": 94,
+      "inciName": "Piroctone Olamine",
+      "normalizedName": "piroctone olamine",
+      "aliasPrimary": null,
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Bahan pendukung perawatan kulit berminyak tertentu",
+      "source": "manual_seed;openbeautyfacts",
+      "referenceUrl": "https://world.openbeautyfacts.org/facets/ingredients/piroctone-olamine",
+      "status": "active",
+      "aliases": [
+        {
+          "aliasName": "PIROCTONE OLAMINE",
+          "aliasType": "openbeautyfacts_name",
+          "source": "openbeautyfacts"
+        }
+      ],
+      "benefits": [
+        {
+          "benefitTag": "oil_control",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Piroctone Olamine mendukung tag oil_control.",
+          "source": "manual_seed;openbeautyfacts"
+        },
+        {
+          "benefitTag": "basic_support",
+          "strengthScore": 3,
+          "evidenceNote": "Curated seed: Piroctone Olamine mendukung tag basic_support.",
+          "source": "manual_seed;openbeautyfacts"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "unknown_safety",
+          "riskScore": 3,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Piroctone Olamine pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "inciName": "Succinic Acid",
+      "normalizedName": "succinic acid",
+      "aliasPrimary": null,
+      "ingredientGroup": "active",
+      "cosmeticFunction": "skin conditioning",
+      "description": "Mendukung perawatan kulit berjerawat ringan dan oil control ringan",
+      "source": "manual_seed",
+      "referenceUrl": null,
+      "status": "active",
+      "aliases": [],
+      "benefits": [
+        {
+          "benefitTag": "acne_care",
+          "strengthScore": 5,
+          "evidenceNote": "Curated seed: Succinic Acid mendukung tag acne_care.",
+          "source": "manual_seed"
+        },
+        {
+          "benefitTag": "oil_control",
+          "strengthScore": 4,
+          "evidenceNote": "Curated seed: Succinic Acid mendukung tag oil_control.",
+          "source": "manual_seed"
+        }
+      ],
+      "risks": [
+        {
+          "riskTag": "dryness_irritation_risk",
+          "riskScore": 4,
+          "riskCondition": "sensitive_skin",
+          "note": "Curated caution untuk Succinic Acid pada kondisi sensitive_skin.",
+          "source": "manual_seed"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "counts": {
+    "ingredients": 95,
+    "aliases": 116,
+    "benefit_rows": 155,
+    "risk_rows": 53,
+    "benefit_tags": 9,
+    "risk_tags": 8,
+    "skin_types": 5,
+    "skin_conditions": 7,
+    "condition_rules": 7,
+    "fuzzy_rules": 15,
+    "routine_templates": 7,
+    "knowledge_source_audit_items": 344,
+    "source_references": 5,
+    "tagged_ingredients": 95
+  },
+  "errors": []
+}

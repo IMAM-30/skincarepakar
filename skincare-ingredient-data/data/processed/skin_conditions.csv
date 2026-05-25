@@ -1,0 +1,8 @@
+id,name,acne_level,dullness_level,redness_level,barrier_damage_level,dryness_level,oiliness_level,description
+1,jerawat,8,2,4,3,2,6,Kondisi jerawat aktif ringan atau mudah breakout.
+2,komedo,6,2,2,2,1,7,Kondisi pori tersumbat atau komedo.
+3,dehidrasi,1,4,3,5,8,2,Kulit terasa kurang air atau tertarik.
+4,kemerahan,2,2,8,6,4,3,Kulit mudah merah atau reaktif.
+5,skin_barrier_terganggu,2,3,6,9,7,3,Skin barrier lemah atau mudah iritasi.
+6,kusam,1,8,2,2,3,3,Kulit tampak kurang cerah atau tidak merata.
+7,bekas_jerawat_ringan,2,7,2,2,2,3,Tampilan noda ringan pascajerawat tanpa klaim medis.

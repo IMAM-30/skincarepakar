@@ -1,0 +1,65 @@
+ingredient_id,inci_name,normalized_name,openbeautyfacts_name,frequency_count,reference_url
+1,Niacinamide,niacinamide,NIACINAMIDE,204,https://world.openbeautyfacts.org/facets/ingredients/niacinamide
+2,Glycerin,glycerin,GLYCERIN,2341,https://world.openbeautyfacts.org/facets/ingredients/glycerin
+3,Hyaluronic Acid,hyaluronic acid,HYALURONIC ACID,55,https://world.openbeautyfacts.org/facets/ingredients/hyaluronic-acid
+4,Sodium Hyaluronate,sodium hyaluronate,SODIUM HYALURONATE,391,https://world.openbeautyfacts.org/facets/ingredients/sodium-hyaluronate
+6,Aloe Barbadensis Leaf Juice,aloe barbadensis leaf juice,fr:aloe-barbadensis-leaf-juice,213,https://world.openbeautyfacts.org/facets/ingredients/fr:aloe-barbadensis-leaf-juice
+7,Urea,urea,UREA,89,https://world.openbeautyfacts.org/facets/ingredients/urea
+8,Sodium PCA,sodium pca,Sodium-pca,124,https://world.openbeautyfacts.org/facets/ingredients/sodium-pca
+9,Ceramide NP,ceramide np,CERAMIDE NP,107,https://world.openbeautyfacts.org/facets/ingredients/ceramide-np
+10,Ceramide AP,ceramide ap,CERAMIDE AP,61,https://world.openbeautyfacts.org/facets/ingredients/ceramide-ap
+11,Ceramide EOP,ceramide eop,CERAMIDE EOP,55,https://world.openbeautyfacts.org/facets/ingredients/ceramide-eop
+12,Cholesterol,cholesterol,CHOLESTEROL,80,https://world.openbeautyfacts.org/facets/ingredients/cholesterol
+14,Panthenol,panthenol,PANTHENOL,898,https://world.openbeautyfacts.org/facets/ingredients/panthenol
+15,Squalane,squalane,SQUALANE,131,https://world.openbeautyfacts.org/facets/ingredients/squalane
+16,Allantoin,allantoin,ALLANTOIN,316,https://world.openbeautyfacts.org/facets/ingredients/allantoin
+19,Bisabolol,bisabolol,BISABOLOL,144,https://world.openbeautyfacts.org/facets/ingredients/bisabolol
+20,Camellia Sinensis Leaf Extract,camellia sinensis leaf extract,Camellia sinensis leaf extract,118,https://world.openbeautyfacts.org/facets/ingredients/camellia-sinensis-leaf-extract
+23,Kaolin,kaolin,KAOLIN,68,https://world.openbeautyfacts.org/facets/ingredients/kaolin
+24,Charcoal Powder,charcoal powder,Charcoal-powder,64,https://world.openbeautyfacts.org/facets/ingredients/charcoal-powder
+25,Salicylic Acid,salicylic acid,SALICYLIC ACID,273,https://world.openbeautyfacts.org/facets/ingredients/salicylic-acid
+28,Lactic Acid,lactic acid,LACTIC ACID,300,https://world.openbeautyfacts.org/facets/ingredients/lactic-acid
+34,Sodium Ascorbyl Phosphate,sodium ascorbyl phosphate,SODIUM ASCORBYL PHOSPHATE,79,https://world.openbeautyfacts.org/facets/ingredients/sodium-ascorbyl-phosphate
+39,Tocopherol,tocopherol,TOCOPHEROL,827,https://world.openbeautyfacts.org/facets/ingredients/tocopherol
+40,Retinyl Palmitate,retinyl palmitate,RETINYL PALMITATE,138,https://world.openbeautyfacts.org/facets/ingredients/retinyl-palmitate
+43,Caffeine,caffeine,CAFFEINE,129,https://world.openbeautyfacts.org/facets/ingredients/caffeine
+44,Zinc Oxide,zinc oxide,ZINC OXIDE,158,https://world.openbeautyfacts.org/facets/ingredients/zinc-oxide
+45,Titanium Dioxide,titanium dioxide,TITANIUM DIOXIDE,284,https://world.openbeautyfacts.org/facets/ingredients/titanium-dioxide
+46,Avobenzone,avobenzone,BUTYL METHOXYDIBENZOYLMETHANE,226,https://world.openbeautyfacts.org/facets/ingredients/butyl-methoxydibenzoylmethane
+47,Octocrylene,octocrylene,OCTOCRYLENE,136,https://world.openbeautyfacts.org/facets/ingredients/octocrylene
+50,Diethylamino Hydroxybenzoyl Hexyl Benzoate,diethylamino hydroxybenzoyl hexyl benzoate,DIETHYLAMINO HYDROXYBENZOYL HEXYL BENZOATE,123,https://world.openbeautyfacts.org/facets/ingredients/diethylamino-hydroxybenzoyl-hexyl-benzoate
+51,Ethylhexyl Triazone,ethylhexyl triazone,ETHYLHEXYL TRIAZONE,161,https://world.openbeautyfacts.org/facets/ingredients/ethylhexyl-triazone
+52,Fragrance,fragrance,fr:parfum,3147,https://world.openbeautyfacts.org/facets/ingredients/fr:parfum
+53,Limonene,limonene,LIMONENE,2060,https://world.openbeautyfacts.org/facets/ingredients/limonene
+54,Linalool,linalool,LINALOOL,2073,https://world.openbeautyfacts.org/facets/ingredients/linalool
+55,Citral,citral,fr:citral,531,https://world.openbeautyfacts.org/facets/ingredients/fr:citral
+56,Geraniol,geraniol,GERANIOL,893,https://world.openbeautyfacts.org/facets/ingredients/geraniol
+57,Alcohol Denat.,alcohol denat,ALCOHOL DENAT.,556,https://world.openbeautyfacts.org/facets/ingredients/alcohol-denat
+58,Menthol,menthol,MENTHOL,576,https://world.openbeautyfacts.org/facets/ingredients/menthol
+59,Peppermint Oil,peppermint oil,fr:mentha-piperita-oil,70,https://world.openbeautyfacts.org/facets/ingredients/fr:mentha-piperita-oil
+63,Aqua,aqua,WATER,11073,https://world.openbeautyfacts.org/facets/ingredients/water
+64,Dimethicone,dimethicone,DIMETHICONE,677,https://world.openbeautyfacts.org/facets/ingredients/dimethicone
+65,Petrolatum,petrolatum,PETROLATUM,136,https://world.openbeautyfacts.org/facets/ingredients/petrolatum
+66,Mineral Oil,mineral oil,PARAFFINUM LIQUIDUM,342,https://world.openbeautyfacts.org/facets/ingredients/paraffinum-liquidum
+68,Cetearyl Alcohol,cetearyl alcohol,CETEARYL ALCOHOL,1128,https://world.openbeautyfacts.org/facets/ingredients/cetearyl-alcohol
+69,Cetyl Alcohol,cetyl alcohol,CETYL ALCOHOL,719,https://world.openbeautyfacts.org/facets/ingredients/cetyl-alcohol
+70,Stearyl Alcohol,stearyl alcohol,STEARYL ALCOHOL,331,https://world.openbeautyfacts.org/facets/ingredients/stearyl-alcohol
+71,Butylene Glycol,butylene glycol,BUTYLENE GLYCOL,489,https://world.openbeautyfacts.org/facets/ingredients/butylene-glycol
+72,Propanediol,propanediol,PROPANEDIOL,374,https://world.openbeautyfacts.org/facets/ingredients/propanediol
+73,Dipropylene Glycol,dipropylene glycol,DIPROPYLENE GLYCOL,186,https://world.openbeautyfacts.org/facets/ingredients/dipropylene-glycol
+74,Trehalose,trehalose,TREHALOSE,122,https://world.openbeautyfacts.org/facets/ingredients/trehalose
+75,Betaine,betaine,BETAINE,160,https://world.openbeautyfacts.org/facets/ingredients/betaine
+76,Xylitol,xylitol,XYLITOL,110,https://world.openbeautyfacts.org/facets/ingredients/xylitol
+77,Arginine,arginine,ARGININE,166,https://world.openbeautyfacts.org/facets/ingredients/arginine
+78,Sodium Lactate,sodium lactate,SODIUM LACTATE,94,https://world.openbeautyfacts.org/facets/ingredients/sodium-lactate
+79,Polysorbate 20,polysorbate 20,POLYSORBATE 20,162,https://world.openbeautyfacts.org/facets/ingredients/polysorbate-20
+80,Carbomer,carbomer,CARBOMER,567,https://world.openbeautyfacts.org/facets/ingredients/carbomer
+81,Xanthan Gum,xanthan gum,XANTHAN GUM,739,https://world.openbeautyfacts.org/facets/ingredients/xanthan-gum
+82,Phenoxyethanol,phenoxyethanol,PHENOXYETHANOL,1880,https://world.openbeautyfacts.org/facets/ingredients/phenoxyethanol
+83,Ethylhexylglycerin,ethylhexylglycerin,ETHYLHEXYLGLYCERIN,778,https://world.openbeautyfacts.org/facets/ingredients/ethylhexylglycerin
+84,Disodium EDTA,disodium edta,DISODIUM EDTA,1310,https://world.openbeautyfacts.org/facets/ingredients/disodium-edta
+85,Sodium Benzoate,sodium benzoate,SODIUM BENZOATE,1248,https://world.openbeautyfacts.org/facets/ingredients/sodium-benzoate
+86,Potassium Sorbate,potassium sorbate,POTASSIUM SORBATE,685,https://world.openbeautyfacts.org/facets/ingredients/potassium-sorbate
+87,Citric Acid,citric acid,CITRIC ACID,1587,https://world.openbeautyfacts.org/facets/ingredients/citric-acid
+88,Sodium Hydroxide,sodium hydroxide,SODIUM HYDROXIDE,932,https://world.openbeautyfacts.org/facets/ingredients/sodium-hydroxide
+94,Piroctone Olamine,piroctone olamine,PIROCTONE OLAMINE,118,https://world.openbeautyfacts.org/facets/ingredients/piroctone-olamine

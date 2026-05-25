@@ -1,0 +1,50 @@
+[
+  {
+    "source": "openbeautyfacts",
+    "ok": true,
+    "url": "https://world.openbeautyfacts.org/ingredients.json?page_size=1000",
+    "status": 200,
+    "content_type": "application/json; charset=utf-8",
+    "path": "/Users/imamhudzaifah/Documents/Semester 5/Semester 6/Sistem Pakar/skincarepakar/skincare-ingredient-data/data/raw/openbeautyfacts/ingredients.json",
+    "message": "fetched",
+    "item_count": 1000,
+    "reported_total": 84878,
+    "fetched_at": "2026-05-25T07:00:28+00:00"
+  },
+  {
+    "source": "cosing",
+    "ok": true,
+    "url": "https://single-market-economy.ec.europa.eu/sectors/cosmetics/cosmetic-ingredient-database_en",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "path": "/Users/imamhudzaifah/Documents/Semester 5/Semester 6/Sistem Pakar/skincarepakar/skincare-ingredient-data/data/raw/cosing/cosing_reference.html",
+    "message": "reference page fetched; bulk ingredient export not scraped in this pipeline",
+    "item_count": 1,
+    "reported_total": 1,
+    "fetched_at": "2026-05-25T07:00:29+00:00"
+  },
+  {
+    "source": "cosmile",
+    "ok": true,
+    "url": "https://cosmileeurope.eu/inci/",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "path": "/Users/imamhudzaifah/Documents/Semester 5/Semester 6/Sistem Pakar/skincarepakar/skincare-ingredient-data/data/raw/cosmile/cosmile_inci_reference.html",
+    "message": "reference page fetched; interactive ingredient search not bulk-scraped",
+    "item_count": 1,
+    "reported_total": 1,
+    "fetched_at": "2026-05-25T07:00:31+00:00"
+  },
+  {
+    "source": "cosmeticsinfo",
+    "ok": true,
+    "url": "https://www.cosmeticsinfo.org/ingredients/",
+    "status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "path": "/Users/imamhudzaifah/Documents/Semester 5/Semester 6/Sistem Pakar/skincarepakar/skincare-ingredient-data/data/raw/cosmeticsinfo/ingredients_reference.html",
+    "message": "reference page fetched; ingredient detail pages not bulk-scraped",
+    "item_count": 1,
+    "reported_total": 1,
+    "fetched_at": "2026-05-25T07:00:32+00:00"
+  }
+]

@@ -1,0 +1,6 @@
+id,name,oiliness_default,dryness_default,sensitivity_default,barrier_damage_default,description
+1,berminyak,8,2,4,3,Kulit cenderung menghasilkan minyak berlebih.
+2,kering,2,8,5,5,Kulit cenderung kurang lembap dan terasa tertarik.
+3,kombinasi,6,5,4,3,Sebagian area berminyak dan area lain normal atau kering.
+4,normal,4,4,3,2,Kulit relatif seimbang.
+5,sensitif,4,5,9,6,Kulit mudah terasa perih merah atau reaktif.
