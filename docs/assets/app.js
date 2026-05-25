@@ -393,6 +393,7 @@
           avoidPreferences: selectedValues("avoidPreferences")
         };
         renderResult(buildRecommendation(input));
+        $("#resultPanel").scrollIntoView({ behavior: "smooth", block: "start" });
       } catch (error) {
         $("#formError").textContent = error instanceof Error ? error.message : "Rekomendasi belum bisa diproses.";
         $("#formError").hidden = false;
@@ -409,6 +410,7 @@
               <div class="score-item">
                 <span>${escapeHtml(scoreLabels[key] ?? outputLabels[key] ?? titleize(key))}</span>
                 <strong>${Math.round(value)}${suffix}</strong>
+                <div class="mini-bar" aria-hidden="true"><i style="--score-width: ${Math.max(0, Math.min(100, suffix === "/10" ? value * 10 : value))}%"></i></div>
               </div>
             `
           )
@@ -420,21 +422,21 @@
   function renderRecommendationGroup(title, items) {
     if (!items.length) {
       return `
-        <article class="result-card">
+        <section class="result-section">
           <h3>${escapeHtml(title)}</h3>
           <p class="section-lead">Tidak ada kandungan pada kategori ini untuk input sekarang.</p>
-        </article>
+        </section>
       `;
     }
 
     return `
-      <article class="result-card">
+      <section class="result-section">
         <h3>${escapeHtml(title)}</h3>
         <div class="recommendation-list">
           ${items
             .map(
               (item) => `
-                <div class="recommendation-item">
+                <div class="recommendation-item" data-kind="${escapeHtml(item.recommendationType)}">
                   <header>
                     <h4>${escapeHtml(item.inciName)}</h4>
                     <span class="score-pill">${item.score}%</span>
@@ -450,7 +452,7 @@
             )
             .join("")}
         </div>
-      </article>
+      </section>
     `;
   }
 
@@ -550,6 +552,10 @@
             <div class="tag-row">
               ${ingredient.benefits.slice(0, 4).map((item) => `<span class="tag">${escapeHtml(titleize(item.benefitTag))}</span>`).join("")}
               ${ingredient.risks.slice(0, 3).map((item) => `<span class="tag">${escapeHtml(titleize(item.riskTag))}</span>`).join("")}
+            </div>
+            <div class="source-line">
+              <span>${escapeHtml(ingredient.ingredientGroup ?? "ingredient")}</span>
+              <span>${escapeHtml(ingredient.source ?? "source documented")}</span>
             </div>
           </article>
         `

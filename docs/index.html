@@ -2,17 +2,25 @@
 <html lang="id">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f2c24" />
     <title>SPK Rekomendasi Kandungan Skincare</title>
     <meta
       name="description"
       content="Sistem pendukung keputusan rekomendasi kandungan skincare berbasis Fuzzy Mamdani."
     />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <a class="brand" href="#home">SPK Skincare</a>
+      <a class="brand" href="#home" aria-label="SPK Skincare home">
+        <span class="brand-mark">S</span>
+        <span>
+          <strong>SPK Skincare</strong>
+          <small>Fuzzy Mamdani</small>
+        </span>
+      </a>
       <nav aria-label="Navigasi utama">
         <a href="#rekomendasi">Rekomendasi</a>
         <a href="#ingredients">Ingredient</a>
@@ -24,38 +32,99 @@
     <main>
       <section id="home" class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Fuzzy Mamdani · Source-documented knowledge base</p>
-          <h1>Sistem Pendukung Keputusan Rekomendasi Kandungan Skincare</h1>
+          <p class="eyebrow">Source-documented knowledge base</p>
+          <h1>Rekomendasi kandungan skincare yang lebih masuk akal, terukur, dan mudah dijelaskan.</h1>
           <p>
-            Aplikasi ini membantu pengguna memahami kandungan skincare yang perlu dicari atau dihindari
-            berdasarkan jenis kulit, kondisi kulit, sensitivitas, dan tujuan perawatan.
+            Sistem ini membaca profil kulit singkat, menghitung kebutuhan dengan Fuzzy Mamdani,
+            lalu mengurutkan kandungan yang perlu dicari atau dihindari tanpa membawa pengguna ke brand tertentu.
           </p>
           <div class="actions">
-            <a class="button primary" href="#rekomendasi">Mulai rekomendasi</a>
-            <a class="button secondary" href="#ingredients">Lihat ingredient</a>
+            <a class="button primary" href="#rekomendasi"><span>Mulai analisis</span><b aria-hidden="true">→</b></a>
+            <a class="button secondary" href="#ingredients">Jelajahi kandungan</a>
+          </div>
+          <div class="trust-row" aria-label="Ringkasan sistem">
+            <span>Bukan diagnosis medis</span>
+            <span>Tidak ada brand</span>
+            <span>Client-side static</span>
           </div>
         </div>
-        <aside class="summary-panel" aria-label="Batasan sistem">
-          <h2>Batasan Sistem</h2>
-          <ul>
-            <li>Tidak merekomendasikan brand atau produk tertentu.</li>
-            <li>Tidak menampilkan harga, rating, cart, checkout, atau marketplace.</li>
-            <li>Bukan alat diagnosis medis.</li>
-            <li>Keputusan akhir tetap berada pada pengguna.</li>
-          </ul>
+
+        <aside class="hero-panel" aria-label="Preview analisis fuzzy">
+          <div class="panel-topline">
+            <span>Live decision layer</span>
+            <strong>0-100</strong>
+          </div>
+          <div class="hero-meter">
+            <span style="--value: 82"></span>
+            <div>
+              <strong>Barrier repair</strong>
+              <small>Need score tinggi</small>
+            </div>
+            <b>82%</b>
+          </div>
+          <div class="hero-meter accent">
+            <span style="--value: 73"></span>
+            <div>
+              <strong>Acne-care</strong>
+              <small>Perlu dukungan bertahap</small>
+            </div>
+            <b>73%</b>
+          </div>
+          <div class="ingredient-preview">
+            <div>
+              <small>Direkomendasikan</small>
+              <strong>Niacinamide</strong>
+            </div>
+            <div>
+              <small>Hati-hati</small>
+              <strong>Fragrance</strong>
+            </div>
+          </div>
+          <p>
+            Output fokus pada kandungan, alasan, skor kecocokan, risiko iritasi, dan routine sederhana.
+          </p>
         </aside>
       </section>
 
-      <section id="rekomendasi" class="section-grid">
-        <div>
-          <p class="eyebrow">Form ringkas</p>
-          <h2>Input Profil Kulit</h2>
-          <p class="section-lead">
-            Pilih kondisi yang paling mendekati. Sistem akan memetakan input ke skor fuzzy 0-10,
-            lalu menghitung kebutuhan kandungan pada rentang 0-100.
-          </p>
+      <section class="metric-strip" aria-label="Statistik dataset">
+        <article>
+          <span>95</span>
+          <strong>Ingredient</strong>
+        </article>
+        <article>
+          <span>15</span>
+          <strong>Fuzzy rules</strong>
+        </article>
+        <article>
+          <span>5</span>
+          <strong>Skin types</strong>
+        </article>
+        <article>
+          <span>0</span>
+          <strong>Brand/product</strong>
+        </article>
+      </section>
 
+      <section id="rekomendasi" class="workspace">
+        <div class="section-intro">
+          <p class="eyebrow">Recommendation studio</p>
+          <h2>Masukkan profil kulit, lihat rekomendasi kandungan secara langsung.</h2>
+          <p>
+            Form sengaja dibuat ringkas. Bagian kanan akan berubah menjadi ringkasan fuzzy,
+            ranking kandungan, warning, dan routine setelah input diproses.
+          </p>
+        </div>
+
+        <div class="app-shell">
           <form id="recommendationForm" class="form-card">
+            <div class="form-header">
+              <span>01</span>
+              <div>
+                <h3>Profil pengguna</h3>
+                <p>Pilih kondisi paling relevan, bukan kuesioner panjang.</p>
+              </div>
+            </div>
+
             <label>
               Jenis kulit
               <select id="skinType" name="skinType"></select>
@@ -82,23 +151,33 @@
             </fieldset>
 
             <p id="formError" class="form-error" hidden></p>
-            <button class="button primary" type="submit">Proses rekomendasi</button>
+            <button class="button primary full" type="submit"><span>Proses rekomendasi</span><b aria-hidden="true">→</b></button>
           </form>
-        </div>
 
-        <div id="resultPanel" class="result-stack" aria-live="polite">
-          <article class="empty-state">
-            <h2>Hasil akan muncul di sini</h2>
-            <p>Gunakan form di samping untuk melihat skor fuzzy, rekomendasi kandungan, risiko, dan routine sederhana.</p>
-          </article>
+          <div id="resultPanel" class="result-stack" aria-live="polite">
+            <article class="empty-state">
+              <span class="empty-kicker">Ready</span>
+              <h2>Hasil analisis akan muncul di sini.</h2>
+              <p>
+                Setelah form diproses, sistem menampilkan skor fuzzy, prioritas kandungan,
+                kandungan pendukung, warning, dan routine sederhana.
+              </p>
+              <div class="empty-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
       <section id="ingredients" class="section">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Ingredient browser</p>
-            <h2>Daftar Kandungan</h2>
+            <p class="eyebrow">Ingredient intelligence</p>
+            <h2>Browser kandungan</h2>
+            <p>Telusuri benefit, risk tag, alias, dan fungsi kosmetik dari knowledge base.</p>
           </div>
           <p id="ingredientCount" class="count-badge">Memuat data...</p>
         </div>
@@ -106,7 +185,7 @@
         <div class="filter-row">
           <label>
             Cari ingredient
-            <input id="ingredientSearch" type="search" placeholder="Contoh: niacinamide, glycerin, fragrance" />
+            <input id="ingredientSearch" type="search" placeholder="niacinamide, glycerin, fragrance" />
           </label>
           <label>
             Benefit tag
@@ -125,30 +204,30 @@
         <div id="ingredientList" class="ingredient-grid"></div>
       </section>
 
-      <section id="metode" class="section two-column">
+      <section id="metode" class="section method-section">
         <div>
-          <p class="eyebrow">Metode</p>
-          <h2>Fuzzy Mamdani</h2>
+          <p class="eyebrow">Inference method</p>
+          <h2>Fuzzy Mamdani yang bisa dijelaskan.</h2>
           <p>
-            Input pengguna dipetakan menjadi skor oiliness, dryness, acne, sensitivity,
-            barrier damage, dan dullness. Rule Mamdani mengevaluasi kebutuhan oil-control,
-            hidrasi, acne-care, barrier-repair, soothing, brightening, kehati-hatian eksfoliasi,
-            dan risiko iritasi.
+            Input pengguna dipetakan ke oiliness, dryness, acne, sensitivity, barrier damage,
+            dan dullness. Rule Mamdani mengevaluasi kebutuhan kandungan dan risiko iritasi,
+            lalu defuzzification centroid mengubahnya menjadi skor 0-100.
           </p>
         </div>
         <div class="method-list">
           <div><strong>AND</strong><span>min</span></div>
           <div><strong>Implication</strong><span>min</span></div>
           <div><strong>Aggregation</strong><span>max</span></div>
-          <div><strong>Defuzzification</strong><span>centroid 0-100</span></div>
+          <div><strong>Defuzzification</strong><span>centroid</span></div>
         </div>
       </section>
 
       <section id="data" class="section">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Dataset</p>
-            <h2>Status Data</h2>
+            <p class="eyebrow">Dataset status</p>
+            <h2>Source-documented, bukan klaim medis.</h2>
+            <p>Data dipakai untuk project akademik dan sistem pendukung keputusan, bukan pengganti tenaga profesional.</p>
           </div>
         </div>
         <div id="dataStatus" class="stats-grid"></div>
@@ -156,10 +235,14 @@
     </main>
 
     <footer>
-      <p>
-        Sistem ini adalah sistem pendukung keputusan, bukan alat diagnosis medis. Hasil rekomendasi
-        bersifat informatif berdasarkan data kandungan skincare dan aturan fuzzy.
-      </p>
+      <div>
+        <strong>SPK Skincare</strong>
+        <p>
+          Sistem ini adalah sistem pendukung keputusan, bukan alat diagnosis medis. Hasil rekomendasi
+          bersifat informatif berdasarkan data kandungan skincare dan aturan fuzzy.
+        </p>
+      </div>
+      <a href="#home">Kembali ke atas</a>
     </footer>
 
     <script src="assets/app.js" defer></script>
