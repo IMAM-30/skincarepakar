@@ -46,6 +46,11 @@
   let latestRecommendation = null;
   let productCameraStream = null;
   let productImageSource = null;
+  let productOriginalImageSource = null;
+  let productImageNaturalSize = null;
+  let productCropState = { x: 0.06, y: 0.18, width: 0.88, height: 0.62 };
+  let productCropModeActive = false;
+  let cropDragState = null;
 
   function $(selector) {
     return document.querySelector(selector);
@@ -609,14 +614,282 @@
     target.dataset.tone = tone;
   }
 
+  function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+  }
+
   function showProductImagePreview(src) {
     const preview = $("#productImagePreview");
     const placeholder = $("#productImagePlaceholder");
     const camera = $("#productCamera");
-    preview.src = src;
+    if (src && preview.src !== src) preview.src = src;
     preview.hidden = false;
     placeholder.hidden = true;
     camera.hidden = true;
+  }
+
+  function resetCropState() {
+    productCropState = { x: 0.04, y: 0.12, width: 0.92, height: 0.7 };
+  }
+
+  function getDisplayedImageRect() {
+    const panel = $(".camera-panel").getBoundingClientRect();
+    if (!productImageNaturalSize) return { left: 0, top: 0, width: panel.width, height: panel.height };
+
+    const scale = Math.min(panel.width / productImageNaturalSize.width, panel.height / productImageNaturalSize.height);
+    const width = productImageNaturalSize.width * scale;
+    const height = productImageNaturalSize.height * scale;
+
+    return {
+      left: (panel.width - width) / 2,
+      top: (panel.height - height) / 2,
+      width,
+      height
+    };
+  }
+
+  function renderCropBox() {
+    const layer = $("#productCropLayer");
+    const box = $("#productCropBox");
+    if (!productOriginalImageSource || !productImageNaturalSize) {
+      layer.hidden = true;
+      return;
+    }
+    if (!productCropModeActive) {
+      layer.hidden = true;
+      return;
+    }
+
+    const rect = getDisplayedImageRect();
+    box.style.left = `${rect.left + productCropState.x * rect.width}px`;
+    box.style.top = `${rect.top + productCropState.y * rect.height}px`;
+    box.style.width = `${productCropState.width * rect.width}px`;
+    box.style.height = `${productCropState.height * rect.height}px`;
+    layer.hidden = false;
+  }
+
+  function updateCropButtonLabel() {
+    const button = $("#applyCropButton");
+    if (button) button.textContent = productCropModeActive ? "Terapkan crop" : "Atur crop";
+  }
+
+  function setCropButtons(enabled) {
+    $("#rotateLeftButton").disabled = !enabled;
+    $("#rotateRightButton").disabled = !enabled;
+    $("#applyCropButton").disabled = !enabled;
+    $("#resetCropButton").disabled = !enabled;
+    updateCropButtonLabel();
+  }
+
+  function setProductImageForCrop(src) {
+    return new Promise((resolve, reject) => {
+      const preview = $("#productImagePreview");
+      const finishPreviewLoad = () => {
+        preview.onload = null;
+        preview.onerror = null;
+        productOriginalImageSource = src;
+        productImageSource = src;
+        productImageNaturalSize = {
+          width: preview.naturalWidth || 1,
+          height: preview.naturalHeight || 1
+        };
+        resetCropState();
+        productCropModeActive = false;
+        showProductImagePreview(src);
+        setCropButtons(true);
+        renderCropBox();
+        resolve();
+      };
+
+      if (preview.src === src && preview.complete && preview.naturalWidth) {
+        finishPreviewLoad();
+        return;
+      }
+
+      preview.onload = finishPreviewLoad;
+      preview.onerror = () => reject(new Error("Preview gambar gagal dimuat."));
+      preview.src = src;
+    });
+  }
+
+  function updateCropStateFromDrag(event) {
+    if (!cropDragState) return;
+
+    const rect = getDisplayedImageRect();
+    const dx = (event.clientX - cropDragState.startX) / rect.width;
+    const dy = (event.clientY - cropDragState.startY) / rect.height;
+    const start = cropDragState.startCrop;
+    const minSize = 0.14;
+    let next = { ...start };
+
+    if (cropDragState.mode === "move") {
+      next.x = clamp(start.x + dx, 0, 1 - start.width);
+      next.y = clamp(start.y + dy, 0, 1 - start.height);
+    } else {
+      const mode = cropDragState.mode;
+      if (mode.includes("e")) next.width = clamp(start.width + dx, minSize, 1 - start.x);
+      if (mode.includes("s")) next.height = clamp(start.height + dy, minSize, 1 - start.y);
+      if (mode.includes("w")) {
+        const x = clamp(start.x + dx, 0, start.x + start.width - minSize);
+        next.width = start.width + (start.x - x);
+        next.x = x;
+      }
+      if (mode.includes("n")) {
+        const y = clamp(start.y + dy, 0, start.y + start.height - minSize);
+        next.height = start.height + (start.y - y);
+        next.y = y;
+      }
+    }
+
+    productCropState = next;
+    renderCropBox();
+  }
+
+  function startCropDrag(event) {
+    if (!productOriginalImageSource) return;
+    const handle = event.target?.dataset?.cropHandle;
+    cropDragState = {
+      mode: handle || "move",
+      startX: event.clientX,
+      startY: event.clientY,
+      startCrop: { ...productCropState }
+    };
+    event.preventDefault();
+    $("#productCropBox").setPointerCapture?.(event.pointerId);
+  }
+
+  function stopCropDrag() {
+    cropDragState = null;
+  }
+
+  function loadImage(src) {
+    return new Promise((resolve, reject) => {
+      const image = new Image();
+      image.onload = () => resolve(image);
+      image.onerror = () => reject(new Error("Gambar gagal dimuat."));
+      image.src = src;
+    });
+  }
+
+  function waitForCameraFrame(camera) {
+    return new Promise((resolve, reject) => {
+      if (camera.videoWidth > 0 && camera.videoHeight > 0 && camera.readyState >= 2) {
+        resolve();
+        return;
+      }
+
+      let settled = false;
+      const done = () => {
+        if (settled) return;
+        settled = true;
+        resolve();
+      };
+      const fail = () => {
+        if (settled) return;
+        settled = true;
+        reject(new Error("Frame kamera belum siap. Tunggu sebentar lalu ambil foto lagi."));
+      };
+
+      if (typeof camera.requestVideoFrameCallback === "function") {
+        camera.requestVideoFrameCallback(done);
+      } else {
+        camera.addEventListener("loadeddata", done, { once: true });
+      }
+      window.setTimeout(fail, 1600);
+    });
+  }
+
+  async function captureFromImageCapture() {
+    if (!productCameraStream || typeof window.ImageCapture !== "function") return null;
+    const track = productCameraStream.getVideoTracks()[0];
+    if (!track) return null;
+
+    const capture = new window.ImageCapture(track);
+    const blob = await capture.takePhoto();
+    return URL.createObjectURL(blob);
+  }
+
+  async function captureVisibleCameraFrame(camera, canvas) {
+    await waitForCameraFrame(camera);
+    const width = camera.videoWidth;
+    const height = camera.videoHeight;
+    if (!width || !height) throw new Error("Frame kamera belum terbaca. Tunggu sebentar lalu ambil foto lagi.");
+
+    canvas.width = width;
+    canvas.height = height;
+    canvas.getContext("2d").drawImage(camera, 0, 0, width, height);
+    return canvas.toDataURL("image/png");
+  }
+
+  async function applyProductCrop() {
+    if (!productOriginalImageSource || !productImageNaturalSize) return;
+    if (!productCropModeActive) {
+      productCropModeActive = true;
+      updateCropButtonLabel();
+      renderCropBox();
+      setOcrStatus("Mode crop aktif. Geser area ingredient, lalu klik Terapkan crop.", "neutral");
+      return;
+    }
+
+    const image = await loadImage(productOriginalImageSource);
+    const canvas = $("#productCaptureCanvas");
+    const cropX = Math.round(productCropState.x * image.naturalWidth);
+    const cropY = Math.round(productCropState.y * image.naturalHeight);
+    const cropWidth = Math.round(productCropState.width * image.naturalWidth);
+    const cropHeight = Math.round(productCropState.height * image.naturalHeight);
+
+    canvas.width = cropWidth;
+    canvas.height = cropHeight;
+    canvas.getContext("2d").drawImage(image, cropX, cropY, cropWidth, cropHeight, 0, 0, cropWidth, cropHeight);
+    productImageSource = canvas.toDataURL("image/png");
+    showProductImagePreview(productImageSource);
+    productCropModeActive = false;
+    updateCropButtonLabel();
+    $("#productCropLayer").hidden = true;
+    setOcrStatus("Crop diterapkan. OCR akan fokus pada area ingredient.", "ok");
+  }
+
+  async function resetProductCrop() {
+    if (!productOriginalImageSource) return;
+    productImageSource = productOriginalImageSource;
+    productCropModeActive = false;
+    updateCropButtonLabel();
+    showProductImagePreview(productOriginalImageSource);
+    resetCropState();
+    renderCropBox();
+    setOcrStatus("Crop direset. Klik Atur crop bila ingin memilih area ingredient.", "neutral");
+  }
+
+  async function rotateProductImage(direction) {
+    const source = productImageSource || productOriginalImageSource;
+    if (!source) return;
+
+    try {
+      const image = await loadImage(source);
+      const canvas = $("#productCaptureCanvas");
+      const context = canvas.getContext("2d");
+      const sourceWidth = image.naturalWidth || image.width;
+      const sourceHeight = image.naturalHeight || image.height;
+
+      canvas.width = sourceHeight;
+      canvas.height = sourceWidth;
+      context.save();
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.translate(canvas.width / 2, canvas.height / 2);
+      context.rotate(direction * Math.PI / 2);
+      context.drawImage(image, -sourceWidth / 2, -sourceHeight / 2, sourceWidth, sourceHeight);
+      context.restore();
+
+      await setProductImageForCrop(canvas.toDataURL("image/png"));
+      setOcrStatus(
+        direction > 0
+          ? "Gambar diputar ke kanan. Klik Atur crop bila ingin memilih area ingredient."
+          : "Gambar diputar ke kiri. Klik Atur crop bila ingin memilih area ingredient.",
+        "ok"
+      );
+    } catch (error) {
+      setOcrStatus(error.message || "Gambar gagal diputar.", "error");
+    }
   }
 
   function setCameraButtons(isOpen) {
@@ -640,6 +913,7 @@
       const camera = $("#productCamera");
       $("#productImagePreview").hidden = true;
       $("#productImagePlaceholder").hidden = true;
+      $("#productCropLayer").hidden = true;
       camera.hidden = false;
       camera.srcObject = productCameraStream;
       await camera.play();
@@ -666,26 +940,61 @@
     setCameraButtons(false);
   }
 
-  function captureProductPhoto() {
+  async function captureProductPhoto() {
     const camera = $("#productCamera");
     const canvas = $("#productCaptureCanvas");
-    const width = camera.videoWidth || 1280;
-    const height = camera.videoHeight || 720;
-    canvas.width = width;
-    canvas.height = height;
-    canvas.getContext("2d").drawImage(camera, 0, 0, width, height);
-    productImageSource = canvas.toDataURL("image/png");
-    showProductImagePreview(productImageSource);
-    stopProductCamera();
-    setOcrStatus("Foto siap dibaca OCR.", "ok");
+    $("#capturePhotoButton").disabled = true;
+
+    try {
+      const visibleFrameSource = await captureVisibleCameraFrame(camera, canvas).catch(() => null);
+      const capturedSource = visibleFrameSource || (await captureFromImageCapture().catch(() => null));
+      if (!capturedSource) throw new Error("Foto gagal diambil. Pastikan kamera sudah menampilkan gambar dengan jelas.");
+
+      stopProductCamera();
+      await setProductImageForCrop(capturedSource);
+      setOcrStatus("Foto siap. Klik Atur crop bila ingin memilih area ingredient, atau langsung OCR.", "ok");
+    } catch (error) {
+      setCameraButtons(Boolean(productCameraStream));
+      setOcrStatus(error instanceof Error ? error.message : "Foto gagal diambil.", "error");
+    }
   }
 
-  function handleProductImageFile(event) {
+  async function handleProductImageFile(event) {
     const file = event.target.files?.[0];
     if (!file) return;
-    productImageSource = file;
-    showProductImagePreview(URL.createObjectURL(file));
-    setOcrStatus("Foto siap dibaca OCR.", "ok");
+    await setProductImageForCrop(URL.createObjectURL(file));
+    setOcrStatus("Foto siap. Klik Atur crop bila ingin memilih area ingredient, atau langsung OCR.", "ok");
+  }
+
+  async function createEnhancedOcrSource(src) {
+    const image = await loadImage(src);
+    const maxSide = 2400;
+    const upscale = Math.max(1.15, Math.min(3, 1800 / Math.max(image.naturalWidth, image.naturalHeight)));
+    const scale = Math.min(upscale, maxSide / Math.max(image.naturalWidth, image.naturalHeight));
+    const width = Math.max(1, Math.round(image.naturalWidth * scale));
+    const height = Math.max(1, Math.round(image.naturalHeight * scale));
+    const canvas = $("#productCaptureCanvas");
+    const context = canvas.getContext("2d", { willReadFrequently: true });
+
+    canvas.width = width;
+    canvas.height = height;
+    context.fillStyle = "#ffffff";
+    context.fillRect(0, 0, width, height);
+    context.imageSmoothingEnabled = true;
+    context.drawImage(image, 0, 0, width, height);
+
+    const imageData = context.getImageData(0, 0, width, height);
+    const data = imageData.data;
+    for (let index = 0; index < data.length; index += 4) {
+      const gray = data[index] * 0.299 + data[index + 1] * 0.587 + data[index + 2] * 0.114;
+      const contrasted = clamp((gray - 128) * 1.45 + 136, 0, 255);
+      data[index] = contrasted;
+      data[index + 1] = contrasted;
+      data[index + 2] = contrasted;
+    }
+    context.putImageData(imageData, 0, 0);
+
+    return canvas.toDataURL("image/png");
   }
 
   async function runProductOcr() {
@@ -703,16 +1012,37 @@
     setOcrStatus("OCR membaca foto...", "neutral");
 
     try {
-      const result = await window.Tesseract.recognize(productImageSource, "eng", {
+      const ocrSource = await createEnhancedOcrSource(productImageSource);
+      const result = await window.Tesseract.recognize(ocrSource, "eng", {
         logger: (progress) => {
           if (progress.status === "recognizing text") {
             setOcrStatus(`OCR membaca teks ${Math.round((progress.progress ?? 0) * 100)}%.`, "neutral");
           }
-        }
+        },
+        preserve_interword_spaces: "1",
+        tessedit_pageseg_mode: "6"
       });
       const text = result?.data?.text?.trim() ?? "";
-      $("#productIngredientsText").value = text;
-      setOcrStatus(text ? "OCR selesai. Koreksi teks jika ada huruf yang salah." : "OCR selesai, tetapi teks belum terbaca jelas.", text ? "ok" : "error");
+      const rewrite = window.ProductCheckerCore?.rewriteIngredientText(text, appData.ingredients.filter((item) => item.status === "active"), {
+        productTypeId: $("#productType").value
+      });
+      const totalItems = rewrite?.rewrittenItems?.length ?? 0;
+      const knownItems = rewrite?.knownNames?.length ?? 0;
+      const reviewItems = rewrite?.unknownNames?.length ?? 0;
+      if (!text || totalItems === 0) {
+        $("#productIngredientsText").value = "";
+        setOcrStatus(
+          "OCR selesai, tetapi belum menemukan teks ingredient yang jelas. Foto ulang label lebih dekat, terang, dan sejajar.",
+          "error"
+        );
+        return;
+      }
+
+      $("#productIngredientsText").value = rewrite?.rewrittenText ?? "";
+      setOcrStatus(
+        `OCR selesai. ${totalItems} ingredient ditulis ulang; ${knownItems} dikenali sistem, ${reviewItems} perlu review.`,
+        "ok"
+      );
     } catch (error) {
       setOcrStatus(error instanceof Error ? error.message : "OCR gagal membaca foto.", "error");
     } finally {
@@ -825,6 +1155,14 @@
       stopProductCamera();
       setOcrStatus("Kamera dimatikan.", "neutral");
     });
+    $("#productCropBox").addEventListener("pointerdown", startCropDrag);
+    window.addEventListener("pointermove", updateCropStateFromDrag);
+    window.addEventListener("pointerup", stopCropDrag);
+    window.addEventListener("resize", renderCropBox);
+    $("#applyCropButton").addEventListener("click", applyProductCrop);
+    $("#resetCropButton").addEventListener("click", resetProductCrop);
+    $("#rotateLeftButton").addEventListener("click", () => rotateProductImage(-1));
+    $("#rotateRightButton").addEventListener("click", () => rotateProductImage(1));
     $("#productImageInput").addEventListener("change", handleProductImageFile);
     $("#runOcrButton").addEventListener("click", runProductOcr);
     $("#analyzeProductButton").addEventListener("click", analyzeProduct);

@@ -3,16 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#0f2c24" />
+    <meta name="theme-color" content="#f5f5f7" />
     <title>SPK Rekomendasi Kandungan Skincare</title>
     <meta
       name="description"
       content="Sistem pendukung keputusan rekomendasi kandungan skincare berbasis Fuzzy Mamdani."
     />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260530-1520" />
   </head>
-  <body>
+  <body class="apple-polished">
     <header class="topbar">
       <a class="brand" href="#home" aria-label="SPK Skincare home">
         <span class="brand-mark">S</span>
@@ -34,7 +34,7 @@
       <section id="home" class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Source-documented knowledge base</p>
-          <h1>Rekomendasi kandungan skincare yang lebih masuk akal, terukur, dan mudah dijelaskan.</h1>
+          <h1>Skincare intelligence. Dibuat jernih.</h1>
           <p>
             Sistem ini membaca profil kulit singkat, menghitung kebutuhan dengan Fuzzy Mamdani,
             lalu mengurutkan kandungan yang perlu dicari atau dihindari tanpa membawa pengguna ke brand tertentu.
@@ -44,13 +44,13 @@
             <a class="button secondary" href="#ingredients">Jelajahi kandungan</a>
           </div>
           <div class="trust-row" aria-label="Ringkasan sistem">
-            <span>Bukan diagnosis medis</span>
-            <span>Tidak ada brand</span>
-            <span>Client-side static</span>
+            <span>Fuzzy Mamdani</span>
+            <span>OCR ingredient checker</span>
+            <span>Static GitHub Pages</span>
           </div>
         </div>
 
-        <aside class="hero-panel" aria-label="Preview analisis fuzzy">
+        <aside class="hero-panel hero-showcase" aria-label="Preview analisis fuzzy">
           <div class="panel-topline">
             <span>Live decision layer</span>
             <strong>0-100</strong>
@@ -201,6 +201,14 @@
               <video id="productCamera" playsinline muted hidden></video>
               <img id="productImagePreview" alt="Preview label ingredient produk" hidden />
               <canvas id="productCaptureCanvas" hidden></canvas>
+              <div id="productCropLayer" class="crop-layer" hidden>
+                <div id="productCropBox" class="crop-box" role="presentation">
+                  <span data-crop-handle="nw"></span>
+                  <span data-crop-handle="ne"></span>
+                  <span data-crop-handle="sw"></span>
+                  <span data-crop-handle="se"></span>
+                </div>
+              </div>
               <div id="productImagePlaceholder" class="camera-placeholder">
                 <strong>Label ingredients</strong>
                 <span>Foto dekat, terang, dan tulisan sejajar.</span>
@@ -211,6 +219,13 @@
               <button id="openCameraButton" class="button secondary" type="button">Buka kamera</button>
               <button id="capturePhotoButton" class="button secondary" type="button" disabled>Ambil foto</button>
               <button id="stopCameraButton" class="button secondary" type="button" disabled>Matikan</button>
+            </div>
+
+            <div class="crop-actions">
+              <button id="rotateLeftButton" class="button secondary" type="button" disabled>Putar kiri</button>
+              <button id="rotateRightButton" class="button secondary" type="button" disabled>Putar kanan</button>
+              <button id="applyCropButton" class="button secondary" type="button" disabled>Atur crop</button>
+              <button id="resetCropButton" class="button secondary" type="button" disabled>Reset crop</button>
             </div>
 
             <label class="file-input-label">
@@ -330,7 +345,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/tesseract.js@7.0.0/dist/tesseract.min.js" defer></script>
-    <script src="assets/product-checker-core.js" defer></script>
-    <script src="assets/app.js" defer></script>
+    <script src="assets/product-checker-core.js?v=20260530-1520" defer></script>
+    <script src="assets/app.js?v=20260530-1520" defer></script>
   </body>
 </html>
