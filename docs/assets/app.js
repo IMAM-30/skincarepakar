@@ -43,6 +43,9 @@
     "Sistem ini adalah sistem pendukung keputusan, bukan alat diagnosis medis. Hasil rekomendasi bersifat informatif berdasarkan data kandungan skincare dan aturan fuzzy. Keputusan akhir tetap berada pada pengguna. Jika terjadi iritasi berat, alergi, luka, atau kondisi kulit memburuk, konsultasikan dengan tenaga profesional.";
 
   let appData = null;
+  let latestRecommendation = null;
+  let productCameraStream = null;
+  let productImageSource = null;
 
   function $(selector) {
     return document.querySelector(selector);
@@ -478,6 +481,8 @@
   }
 
   function renderResult(result) {
+    latestRecommendation = result;
+    updateProductProfileStatus();
     $("#resultPanel").innerHTML = `
       <article class="result-card">
         <h3>Ringkasan input</h3>
@@ -589,6 +594,243 @@
       .join("");
   }
 
+  function updateProductProfileStatus() {
+    const target = $("#productProfileStatus");
+    if (!target) return;
+    target.textContent = latestRecommendation
+      ? "Profil fuzzy sudah siap. Produk bisa dibandingkan dengan hasil rekomendasi ini."
+      : "Jalankan rekomendasi profil kulit dulu untuk membuka pembanding produk.";
+  }
+
+  function setOcrStatus(message, tone = "neutral") {
+    const target = $("#ocrStatus");
+    if (!target) return;
+    target.textContent = message;
+    target.dataset.tone = tone;
+  }
+
+  function showProductImagePreview(src) {
+    const preview = $("#productImagePreview");
+    const placeholder = $("#productImagePlaceholder");
+    const camera = $("#productCamera");
+    preview.src = src;
+    preview.hidden = false;
+    placeholder.hidden = true;
+    camera.hidden = true;
+  }
+
+  function setCameraButtons(isOpen) {
+    $("#capturePhotoButton").disabled = !isOpen;
+    $("#stopCameraButton").disabled = !isOpen;
+  }
+
+  async function openProductCamera() {
+    try {
+      if (!navigator.mediaDevices?.getUserMedia) {
+        setOcrStatus("Browser ini belum mendukung akses kamera langsung. Gunakan upload foto.", "error");
+        return;
+      }
+
+      stopProductCamera();
+      productCameraStream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: { ideal: "environment" } },
+        audio: false
+      });
+
+      const camera = $("#productCamera");
+      $("#productImagePreview").hidden = true;
+      $("#productImagePlaceholder").hidden = true;
+      camera.hidden = false;
+      camera.srcObject = productCameraStream;
+      await camera.play();
+      setCameraButtons(true);
+      setOcrStatus("Kamera aktif. Ambil foto saat tulisan ingredients sudah jelas.", "ok");
+    } catch (error) {
+      setOcrStatus(error instanceof Error ? error.message : "Kamera gagal dibuka.", "error");
+      setCameraButtons(false);
+    }
+  }
+
+  function stopProductCamera() {
+    if (productCameraStream) {
+      productCameraStream.getTracks().forEach((track) => track.stop());
+      productCameraStream = null;
+    }
+
+    const camera = $("#productCamera");
+    if (camera) {
+      camera.pause();
+      camera.srcObject = null;
+      camera.hidden = true;
+    }
+    setCameraButtons(false);
+  }
+
+  function captureProductPhoto() {
+    const camera = $("#productCamera");
+    const canvas = $("#productCaptureCanvas");
+    const width = camera.videoWidth || 1280;
+    const height = camera.videoHeight || 720;
+    canvas.width = width;
+    canvas.height = height;
+    canvas.getContext("2d").drawImage(camera, 0, 0, width, height);
+    productImageSource = canvas.toDataURL("image/png");
+    showProductImagePreview(productImageSource);
+    stopProductCamera();
+    setOcrStatus("Foto siap dibaca OCR.", "ok");
+  }
+
+  function handleProductImageFile(event) {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    productImageSource = file;
+    showProductImagePreview(URL.createObjectURL(file));
+    setOcrStatus("Foto siap dibaca OCR.", "ok");
+  }
+
+  async function runProductOcr() {
+    if (!productImageSource) {
+      setOcrStatus("Pilih atau ambil foto ingredient produk terlebih dahulu.", "error");
+      return;
+    }
+    if (!window.Tesseract?.recognize) {
+      setOcrStatus("Mesin OCR belum termuat. Cek koneksi internet lalu muat ulang halaman.", "error");
+      return;
+    }
+
+    const button = $("#runOcrButton");
+    button.disabled = true;
+    setOcrStatus("OCR membaca foto...", "neutral");
+
+    try {
+      const result = await window.Tesseract.recognize(productImageSource, "eng", {
+        logger: (progress) => {
+          if (progress.status === "recognizing text") {
+            setOcrStatus(`OCR membaca teks ${Math.round((progress.progress ?? 0) * 100)}%.`, "neutral");
+          }
+        }
+      });
+      const text = result?.data?.text?.trim() ?? "";
+      $("#productIngredientsText").value = text;
+      setOcrStatus(text ? "OCR selesai. Koreksi teks jika ada huruf yang salah." : "OCR selesai, tetapi teks belum terbaca jelas.", text ? "ok" : "error");
+    } catch (error) {
+      setOcrStatus(error instanceof Error ? error.message : "OCR gagal membaca foto.", "error");
+    } finally {
+      button.disabled = false;
+    }
+  }
+
+  function renderProductMatchList(title, matches) {
+    if (!matches.length) return "";
+    return `
+      <section class="product-match-section">
+        <h3>${escapeHtml(title)}</h3>
+        <div class="product-match-list">
+          ${matches
+            .map(
+              (match) => `
+                <article class="product-match-item" data-kind="${escapeHtml(match.productMatchType)}">
+                  <header>
+                    <h4>${escapeHtml(match.ingredient.inciName)}</h4>
+                    <span>${escapeHtml(match.productMatchLabel)}</span>
+                  </header>
+                  <p>${escapeHtml(match.recommendation?.reason ?? `Terbaca sebagai ${match.matchedText}.`)}</p>
+                  <div class="tag-row">
+                    ${(match.ingredient.benefits ?? []).slice(0, 3).map((benefit) => `<span class="tag">${escapeHtml(titleize(benefit.benefitTag))}</span>`).join("")}
+                    ${(match.ingredient.risks ?? []).slice(0, 3).map((risk) => `<span class="tag">${escapeHtml(titleize(risk.riskTag))}</span>`).join("")}
+                  </div>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+      </section>
+    `;
+  }
+
+  function renderProductCheckResult(result) {
+    const groups = [
+      ["Sesuai rekomendasi", result.matches.filter((match) => match.productMatchType === "recommended")],
+      ["Mendukung profil kulit", result.matches.filter((match) => match.productMatchType === "supporting")],
+      ["Perlu hati-hati", result.matches.filter((match) => match.productMatchType === "use_with_caution")],
+      ["Sebaiknya dihindari", result.matches.filter((match) => match.productMatchType === "avoid_if_sensitive")],
+      ["Terbaca di knowledge base", result.matches.filter((match) => match.productMatchType === "known")]
+    ];
+
+    $("#productCheckResult").innerHTML = `
+      <article class="product-verdict-card" data-status="${escapeHtml(result.status.level)}">
+        <div>
+          <span class="empty-kicker">${escapeHtml(result.productType.label)}</span>
+          <h3>${escapeHtml(result.status.label)}</h3>
+          <p>${escapeHtml(result.status.message)}</p>
+        </div>
+        <strong>${result.score === null ? "-" : `${result.score}%`}</strong>
+      </article>
+      <article class="result-card">
+        <h3>Ringkasan pembacaan</h3>
+        <div class="product-stat-grid">
+          <div><span>Ingredient terbaca</span><strong>${result.extractedCount}</strong></div>
+          <div><span>Cocok KB</span><strong>${result.matches.length}</strong></div>
+          <div><span>Coverage</span><strong>${result.knownCoverage}%</strong></div>
+          <div><span>Warning</span><strong>${result.counts.use_with_caution + result.counts.avoid_if_sensitive}</strong></div>
+        </div>
+      </article>
+      ${groups.map(([title, matches]) => renderProductMatchList(title, matches)).join("")}
+      ${
+        result.matches.length
+          ? ""
+          : `<article class="result-card"><h3>Ingredient mentah</h3><p>${escapeHtml(result.candidates.slice(0, 14).map((item) => item.raw).join(", ") || "-")}</p></article>`
+      }
+    `;
+  }
+
+  function analyzeProduct() {
+    const core = window.ProductCheckerCore;
+    if (!core) {
+      setOcrStatus("Modul cek produk belum termuat.", "error");
+      return;
+    }
+
+    const rawText = $("#productIngredientsText").value.trim();
+    if (!rawText) {
+      setOcrStatus("Isi hasil ingredient terlebih dahulu.", "error");
+      return;
+    }
+
+    const result = core.assessProduct({
+      rawText,
+      productTypeId: $("#productType").value,
+      recommendation: latestRecommendation,
+      ingredients: appData.ingredients.filter((item) => item.status === "active")
+    });
+
+    renderProductCheckResult(result);
+    $("#productCheckResult").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function initProductChecker() {
+    const core = window.ProductCheckerCore;
+    if (!core) {
+      setOcrStatus("Modul cek produk belum termuat.", "error");
+      return;
+    }
+
+    $("#productType").innerHTML = core.productTypes
+      .map((type) => `<option value="${escapeHtml(type.id)}">${escapeHtml(type.label)}</option>`)
+      .join("");
+    $("#productType").value = "moisturizer";
+    $("#openCameraButton").addEventListener("click", openProductCamera);
+    $("#capturePhotoButton").addEventListener("click", captureProductPhoto);
+    $("#stopCameraButton").addEventListener("click", () => {
+      stopProductCamera();
+      setOcrStatus("Kamera dimatikan.", "neutral");
+    });
+    $("#productImageInput").addEventListener("change", handleProductImageFile);
+    $("#runOcrButton").addEventListener("click", runProductOcr);
+    $("#analyzeProductButton").addEventListener("click", analyzeProduct);
+    updateProductProfileStatus();
+  }
+
   async function boot() {
     try {
       const response = await fetch("data/app-data.json", { cache: "no-store" });
@@ -596,6 +838,7 @@
       appData = await response.json();
       initForm();
       initIngredientFilters();
+      initProductChecker();
       renderDataStatus();
     } catch (error) {
       const message = error instanceof Error ? error.message : "Data static gagal dimuat.";

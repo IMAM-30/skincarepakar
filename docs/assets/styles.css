@@ -275,11 +275,15 @@ footer p {
 .hero-panel,
 .metric-strip,
 .form-card,
+.product-capture-card,
+.product-verdict-card,
 .result-card,
 .ingredient-card,
 .empty-state,
 .method-list,
-.stat-card {
+.stat-card,
+.product-stat-grid div,
+.product-match-item {
   border: 1px solid rgba(216, 226, 220, 0.92);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.82);
@@ -468,9 +472,22 @@ footer p {
   align-items: start;
 }
 
+.product-checker-shell {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.92fr) minmax(0, 1.08fr);
+  gap: 20px;
+  align-items: start;
+}
+
 .form-card {
   display: grid;
   gap: 19px;
+  padding: 20px;
+}
+
+.product-capture-card {
+  display: grid;
+  gap: 16px;
   padding: 20px;
 }
 
@@ -523,7 +540,8 @@ legend {
 }
 
 input,
-select {
+select,
+textarea {
   width: 100%;
   min-height: 46px;
   border: 1px solid var(--line);
@@ -536,10 +554,16 @@ select {
 
 input:focus,
 select:focus,
+textarea:focus,
 button:focus-visible,
 a:focus-visible {
   outline: 3px solid rgba(49, 95, 79, 0.18);
   outline-offset: 2px;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
 }
 
 .option-grid {
@@ -607,7 +631,35 @@ a:focus-visible {
   font-weight: 760;
 }
 
+.form-note {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--muted);
+  margin: 0;
+  padding: 10px 11px;
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.form-note[data-tone="ok"] {
+  border-color: rgba(49, 95, 79, 0.22);
+  background: var(--sage-soft);
+  color: var(--sage);
+}
+
+.form-note[data-tone="error"] {
+  border-color: rgba(142, 80, 72, 0.24);
+  background: var(--rose);
+  color: var(--rose-ink);
+}
+
 .result-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.product-result-stack {
   display: grid;
   gap: 14px;
 }
@@ -659,6 +711,193 @@ a:focus-visible {
 
 .result-card {
   padding: 18px;
+}
+
+.camera-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(238, 246, 241, 0.9)),
+    #fff;
+  aspect-ratio: 4 / 3;
+}
+
+.camera-panel video,
+.camera-panel img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camera-placeholder {
+  display: grid;
+  height: 100%;
+  place-items: center;
+  align-content: center;
+  gap: 6px;
+  color: var(--muted);
+  padding: 20px;
+  text-align: center;
+}
+
+.camera-placeholder strong {
+  color: var(--sage);
+  font-size: 22px;
+}
+
+.camera-placeholder span {
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.capture-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.capture-actions .button {
+  min-height: 42px;
+  padding: 9px 10px;
+  font-size: 13px;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+  box-shadow: none;
+}
+
+.file-input-label input {
+  cursor: pointer;
+}
+
+.product-verdict-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 20px;
+}
+
+.product-verdict-card h3 {
+  margin-top: 10px;
+  font-size: 30px;
+}
+
+.product-verdict-card p {
+  color: var(--muted);
+  margin: 8px 0 0;
+}
+
+.product-verdict-card > strong {
+  display: grid;
+  width: 88px;
+  height: 88px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--sage-soft);
+  color: var(--sage);
+  font-size: 24px;
+}
+
+.product-verdict-card[data-status="match"] {
+  border-left: 5px solid var(--sage);
+}
+
+.product-verdict-card[data-status="caution"],
+.product-verdict-card[data-status="unknown"],
+.product-verdict-card[data-status="needs_profile"] {
+  border-left: 5px solid var(--gold);
+}
+
+.product-verdict-card[data-status="avoid"] {
+  border-left: 5px solid var(--rose-ink);
+}
+
+.product-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.product-stat-grid div {
+  padding: 13px;
+}
+
+.product-stat-grid span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 820;
+}
+
+.product-stat-grid strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.product-match-section {
+  display: grid;
+  gap: 10px;
+}
+
+.product-match-section h3 {
+  font-size: 20px;
+}
+
+.product-match-list {
+  display: grid;
+  gap: 10px;
+}
+
+.product-match-item {
+  padding: 14px;
+}
+
+.product-match-item[data-kind="recommended"],
+.product-match-item[data-kind="supporting"] {
+  border-left: 4px solid var(--sage);
+}
+
+.product-match-item[data-kind="use_with_caution"],
+.product-match-item[data-kind="avoid_if_sensitive"] {
+  border-left: 4px solid var(--rose-ink);
+}
+
+.product-match-item header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.product-match-item h4 {
+  font-size: 18px;
+}
+
+.product-match-item header span {
+  flex: 0 1 auto;
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--muted);
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 820;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.product-match-item p {
+  color: var(--muted);
+  margin: 8px 0 0;
+  font-size: 14px;
 }
 
 .result-card h3,
@@ -923,6 +1162,7 @@ footer a {
 
   .hero,
   .app-shell,
+  .product-checker-shell,
   .method-section,
   .section-intro,
   .section-heading,
@@ -946,6 +1186,7 @@ footer a {
   .metric-strip,
   .score-grid,
   .stats-grid,
+  .product-stat-grid,
   .ingredient-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -992,8 +1233,11 @@ footer a {
   .option-grid,
   .score-grid,
   .stats-grid,
+  .product-stat-grid,
   .ingredient-grid,
-  .two-column {
+  .two-column,
+  .capture-actions,
+  .product-verdict-card {
     grid-template-columns: 1fr;
   }
 
@@ -1015,9 +1259,16 @@ footer a {
   }
 
   .form-card,
+  .product-capture-card,
   .hero-panel,
-  .result-card {
+  .result-card,
+  .product-verdict-card {
     padding: 16px;
+  }
+
+  .product-verdict-card > strong {
+    width: 74px;
+    height: 74px;
   }
 
   footer {

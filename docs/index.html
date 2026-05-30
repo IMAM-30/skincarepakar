@@ -23,6 +23,7 @@
       </a>
       <nav aria-label="Navigasi utama">
         <a href="#rekomendasi">Rekomendasi</a>
+        <a href="#cek-produk">Cek Produk</a>
         <a href="#ingredients">Ingredient</a>
         <a href="#metode">Metode</a>
         <a href="#data">Data</a>
@@ -172,6 +173,89 @@
         </div>
       </section>
 
+      <section id="cek-produk" class="section product-checker-section">
+        <div class="section-intro">
+          <p class="eyebrow">Product compatibility</p>
+          <h2>Cek produk yang sedang dipakai dari foto ingredient label.</h2>
+          <p>
+            Sistem membaca daftar ingredient, lalu membandingkannya dengan hasil rekomendasi profil kulit yang sudah diproses.
+          </p>
+        </div>
+
+        <div class="product-checker-shell">
+          <article class="product-capture-card">
+            <div class="form-header">
+              <span>02</span>
+              <div>
+                <h3>Foto ingredient produk</h3>
+                <p id="productProfileStatus">Jalankan rekomendasi profil kulit dulu untuk membuka pembanding produk.</p>
+              </div>
+            </div>
+
+            <label>
+              Golongan produk
+              <select id="productType"></select>
+            </label>
+
+            <div class="camera-panel">
+              <video id="productCamera" playsinline muted hidden></video>
+              <img id="productImagePreview" alt="Preview label ingredient produk" hidden />
+              <canvas id="productCaptureCanvas" hidden></canvas>
+              <div id="productImagePlaceholder" class="camera-placeholder">
+                <strong>Label ingredients</strong>
+                <span>Foto dekat, terang, dan tulisan sejajar.</span>
+              </div>
+            </div>
+
+            <div class="capture-actions">
+              <button id="openCameraButton" class="button secondary" type="button">Buka kamera</button>
+              <button id="capturePhotoButton" class="button secondary" type="button" disabled>Ambil foto</button>
+              <button id="stopCameraButton" class="button secondary" type="button" disabled>Matikan</button>
+            </div>
+
+            <label class="file-input-label">
+              Upload foto
+              <input id="productImageInput" type="file" accept="image/*" capture="environment" />
+            </label>
+
+            <button id="runOcrButton" class="button primary full" type="button">
+              <span>Baca ingredients</span><b aria-hidden="true">→</b>
+            </button>
+
+            <p id="ocrStatus" class="form-note">OCR siap setelah foto dipilih.</p>
+
+            <label>
+              Hasil baca ingredient
+              <textarea
+                id="productIngredientsText"
+                rows="8"
+                placeholder="Aqua, Glycerin, Niacinamide, Panthenol..."
+              ></textarea>
+            </label>
+
+            <button id="analyzeProductButton" class="button primary full" type="button">
+              <span>Cek kecocokan produk</span><b aria-hidden="true">→</b>
+            </button>
+          </article>
+
+          <div id="productCheckResult" class="product-result-stack" aria-live="polite">
+            <article class="empty-state product-empty-state">
+              <span class="empty-kicker">Ready</span>
+              <h2>Hasil cek produk akan muncul di sini.</h2>
+              <p>
+                Setelah OCR dan rekomendasi profil tersedia, sistem akan menandai ingredient yang cocok,
+                perlu hati-hati, atau sebaiknya dihindari.
+              </p>
+              <div class="empty-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="ingredients" class="section">
         <div class="section-heading">
           <div>
@@ -245,6 +329,8 @@
       <a href="#home">Kembali ke atas</a>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@7.0.0/dist/tesseract.min.js" defer></script>
+    <script src="assets/product-checker-core.js" defer></script>
     <script src="assets/app.js" defer></script>
   </body>
 </html>
